@@ -22,14 +22,14 @@ This site is based on an early version of my custom MVC / CMS platform: https://
 
 # Features
 
-Analytics For Site Usage and Statistics
-Content Search and Relevancy Sorting (Sphinx engine)
-Email Campaigns
-Game Categorization
-Gaming System Repair Service (Integrated with a repair service)
-Facebook Login
-Interest Feeds / API
-Posting and Comments
-Site Advertisements (Side and banner modules)
-Site Tagging
-User Accounts
+- Analytics For Site Usage and Statistics
+- Content Search and Relevancy Sorting (Sphinx engine)
+- Email Campaigns
+- Game Categorization
+- Gaming System Repair Service (Integrated with a repair service)
+- Facebook Login
+- Interest Feeds / API
+- Posting and Comments
+- Site Advertisements (Side and banner modules)
+- Site Tagging
+- User Accounts
