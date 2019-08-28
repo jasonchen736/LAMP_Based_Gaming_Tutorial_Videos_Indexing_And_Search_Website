@@ -1,4 +1,4 @@
-# Gaming Videos Indexing And Search
+# Gaming Tutorial Videos Indexing And Search
 
 This site was conceptualized and built in 2011.  I was a big video gamer back then, and was inspired by watching YouTube gaming videos, gaming FAQ sites, and Reddit.  I thought it would be nice to have a gamefaqs like site, but with video tutorials, tips, and secrets.  It would follow a Reddit model where users submitted and commented / voted on videos.  Revenue can be generated with ads and game system repairs.  A friend of mine had a game system repair service and I could integrate orders with his service.
 
