@@ -1,0 +1,22 @@
+
+			</div>
+		</div>
+		<div class="footer">
+			<ul>
+				<li><a href="/article/aboutus">about us</a></li> |
+				<li><a href="/article/privacypolicy">privacy policy</a></li> |
+				<li><a href="/article/termsandconditions">terms and conditions</a></li> |
+				<li><a href="/article/contactus">contact us</a></li>
+			</ul>
+		</div>
+	</div>
+
+{foreach from=$_SITETAGS.footer item=_sitetag}
+{if $_sitetag.siteTag}
+{$_sitetag.siteTag}
+{/if}
+{/foreach}
+
+</body>
+
+</html>

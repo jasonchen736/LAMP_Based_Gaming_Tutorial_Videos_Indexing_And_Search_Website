@@ -1,0 +1,60 @@
+{include file="admin/adminHeader.htm"}
+
+<form action="{$smarty.server.PHP_SELF}" method="post">
+	<table id="editTable">
+		<tr>
+			<td id="editMenuCell">
+				<ul id="editMenu">
+					<li class="head">&nbsp;</li>
+					<li class="editMenuOption{if !$propertyMenuItem || $propertyMenuItem == 'user_main'} selected{/if}" id="user_main">User Details</li>
+					<li class="end">&nbsp;</li>
+				</ul>
+				<div id="editActionContainer">
+{if $mode == 'edit'}
+					<input type="hidden" name="action" value="updateUser" />
+					<input type="hidden" name="userID" value="{$user.userID}" />
+					<input class="button" type="submit" name="submit" value="Update" />
+{else}
+					<input type="hidden" name="action" value="saveUser" />
+					<input class="button" type="submit" name="submit" value="Add and Edit" />
+					<br class="clear" />
+					<input class="button" type="submit" name="submit" value="Add Another" />
+{/if}
+				</div>
+			</td>
+			<td id="editPropertyCell">
+				<div id="user_mainContainer" class="propertyContainer{if $propertyMenuItem && $propertyMenuItem != 'user_main'} hidden{/if}">
+					<table>
+{if $mode == 'edit'}
+						<tr>
+							<td><span class="normalLabel">User ID:</span></td>
+							<td>{$user.userID}</td>
+						</tr>
+{/if}
+						<tr>
+							<td><span class="{if 'email'|in_array:$errorFields}errorLabel{else}normalLabel{/if}">Email:</span></td>
+							<td><input type="text" name="email" value="{$user.email}" /></td>
+						</tr>
+						<tr>
+							<td><span class="{if 'userName'|in_array:$errorFields}errorLabel{else}normalLabel{/if}">User Name:</span></td>
+							<td><input type="text" name="userName" value="{$user.userName}" /></td>
+						</tr>
+						<tr>
+							<td><span class="{if 'password'|in_array:$errorFields}errorLabel{else}normalLabel{/if}">Password:</span></td>
+							<td><input type="password" name="password" value="{$user.password}" fh:formhistory="off" /></td>
+						</tr>
+						<tr>
+							<td><span class="{if 'status'|in_array:$errorFields}errorLabel{else}normalLabel{/if}">Status:</span></td>
+							<td>
+								{html_options name=status options=$statusOptions selected=$user.status}
+							</td>
+						</tr>
+					</table>
+				</div>
+			</td>
+		</tr>
+	</table>
+	<input type="hidden" name="propertyMenuItem" id="propertyMenuItem" value="{$propertyMenuItem}" />
+</form>
+
+{include file="admin/adminFooter.htm"}

@@ -1,0 +1,57 @@
+
+<table class="recordsNavigation">
+	<tr>
+		<th>
+			<form action="{$smarty.server.PHP_SELF}/_sortField/{$query.sortField}/_sortOrder/{$query.sortOrder}{if $query.querystring}/{$query.querystring}{/if}" method="post">
+				<table>
+					<tr>
+						<td>
+							<span class="mainText">Show <input type="text" name="_show" value="{$query.show}" size="1" /> records</span>
+						</td>
+						<td>
+							<input class="button" type="submit" name="submit" value="Update" />
+						</td>
+					</tr>
+				</table>
+			</form>
+		</th>
+{if $query.start > 0}
+		<th>
+			<a href="{$smarty.server.PHP_SELF}/_previousPage/true/_sortField/{$query.sortField}/_sortOrder/{$query.sortOrder}{if $query.querystring}/{$query.querystring}{/if}" class="button">
+				<span>Previous Page</span>
+			</a>
+		</th>
+{/if}
+{if $recordsFound > $query.show}
+		<th>
+			<form action="{$smarty.server.PHP_SELF}/_sortField/{$query.sortField}/_sortOrder/{$query.sortOrder}{if $query.querystring}/{$query.querystring}{/if}" method="post">
+				<table>
+					<tr>
+						<td>
+							<span class="mainText">Skip to page&nbsp;</span>
+							<select name="_page">
+{section name=pages start=1 loop=$query.pages+1 step=1}
+								<option value="{$smarty.section.pages.index}"{if $smarty.section.pages.index==$query.page} selected="selected"{/if}>{$smarty.section.pages.index}</option>
+{/section}
+							</select>
+						</td>
+						<td>
+							<input class="button" type="submit" name="submit" value="Go" />
+						</td>
+					</tr>
+				</table>
+			</form>
+		</th>
+{/if}
+{if $query.start + $query.show < $recordsFound}
+		<th>
+			<a href="{$smarty.server.PHP_SELF}/_nextPage/true/_sortField/{$query.sortField}/_sortOrder/{$query.sortOrder}{if $query.querystring}/{$query.querystring}{/if}" class="button">
+				<span>Next Page</span>
+			</a>
+		</th>
+{/if}
+	</tr>
+</table>
+{if $recordsFound > 0}
+	Showing {$query.start+1} to {if $query.start + $query.show > $recordsFound}{$recordsFound}{else}{$query.show+$query.start}{/if} of {$recordsFound}
+{/if}

@@ -1,0 +1,94 @@
+NAME: repairOrderConfirmation
+HEADER: none
+FOOTER: none
+FROM: repairs@gameprotege.com
+SUBJECT: Your repair request confirmation from GameProtege
+HTML:
+
+Thanks for your repair order, {$repairOrder.first} {$repairOrder.last}!
+<br/><br /><br />
+Please print this page or save this page for your records. You will also receive a receipt via e-mail.
+<br/><br /><br />
+Our friendly repair technician will contact you soon via your preferred method of communication.
+<br/><br /><br />
+If you are sending the system or dropping it off at our affiliates, you can visit or send them to:
+<br/><br /><br />
+XCubicle<br />
+Essex Street<br />
+New York, NY 10002
+<br/><br /><br /><br />
+Repair Summary
+<br/><br /><br />
+Repair Number: {$repairOrder.repairOrderID}<br />
+Request Date: {$repairOrder.orderDate|date_format:"%m/%d/%Y"}<br />
+Console: {$system}<br />
+Serial Number: {$repairOrder.serial}<br />
+Problem: {$systemProblem.name}
+{if $repairOrder.description}Description: {$repairOrder.description}<br />{/if}
+Estimated Cost: ${$systemProblem.cost}
+<br/><br /><br />
+Name: {$repairOrder.first} {$repairOrder.last}<br />
+Email: {$repairOrder.email}<br />
+Phone: {$repairOrder.phone}<br />
+Address 1: {$repairOrder.address1}<br />
+{if $repairOrder.address2}Address 2: {$repairOrder.address2}<br />{/if}
+City: {$repairOrder.city}<br />
+State: {$repairOrder.state}<br />
+Postal: {$repairOrder.postal}
+<br/><br /><br />
+Contact you first? {if $repairOrder.contact == 'none'}no{else}yes, by {$repairOrder.contact}<br />{/if}
+Method of dropoff: {$repairOrder.receiveMethod}<br />
+Method of return: {$repairOrder.returnMethod}
+<br/><br /><br /><br />
+You can expect a call from one of our friendly repair technicians within 24 hrs. If you have questions, please contact us at <a href="mailto:>repairs@gameprotege.com">repairs@gameprotege.com</a>.
+<br/><br /><br />
+Thanks again for repairing with us.
+<br/><br /><br />
+GameProtege.com
+
+TEXT:
+
+Thanks for your repair order, {$repairOrder.first} {$repairOrder.last}!
+
+Please print this page or save this page for your records. You will also receive a receipt via e-mail.
+
+Our friendly repair technician will contact you soon via your preferred method of communication.
+
+If you are sending the system or dropping it off at our affiliates, you can visit or send them to:
+
+XCubicle
+Essex Street
+New York, NY 10002
+
+
+Repair Summary
+
+Repair Number: {$repairOrder.repairOrderID}
+Request Date: {$repairOrder.orderDate|date_format:"%m/%d/%Y"}
+Console: {$system}
+Serial Number: {$repairOrder.serial}
+Problem: {$systemProblem.name}
+{if $repairOrder.description}Description: {$repairOrder.description}{/if}
+Estimated Cost: ${$systemProblem.cost}
+
+Name: {$repairOrder.first} {$repairOrder.last}
+Email: {$repairOrder.email}
+Phone: {$repairOrder.phone}
+Address 1: {$repairOrder.address1}
+{if $repairOrder.address2}Address 2: {$repairOrder.address2}{/if}
+City: {$repairOrder.city}
+State: {$repairOrder.state}
+Postal: {$repairOrder.postal}
+
+Contact you first? {if $repairOrder.contact == 'none'}no{else}yes, by {$repairOrder.contact}{/if}
+Method of dropoff: {$repairOrder.receiveMethod}
+Method of return: {$repairOrder.returnMethod}
+
+
+You can expect a call from one of our friendly repair technicians within 24 hrs. If you have questions, please contact us at <a href="mailto:>repairs@gameprotege.com">repairs@gameprotege.com</a>.
+
+Thanks again for repairing with us.
+
+GameProtege.com
+
+

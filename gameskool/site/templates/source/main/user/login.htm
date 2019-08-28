@@ -1,0 +1,144 @@
+{include file="site/header.htm"}
+
+<div class="openIDContainer">
+	<form action="/user/openid" method="post" id="openid_form">
+		<input type="hidden" name="action" value="verify" />
+		<div class="message">
+			have an account with another site? you can log in with that, too!
+			<br />
+			please select your open id account provider:
+		</div>
+		<div id="openid_choice">
+			<div id="openid_btns">
+				<div class="facebook openid_large_btn" title="Facebook">
+					<a class="submit"><input type="radio" name="provider" value="facebook" /><img src="/images/main/site/openid/facebook.gif" /></a>
+				</div>
+				<div class="google openid_large_btn" title="Google">
+					<a class="submit"><input type="radio" name="provider" value="google" /><img src="/images/main/site/openid/google.gif" /></a>
+				</div>
+				<div class="yahoo openid_large_btn" title="Yahoo">
+					<a class="submit"><input type="radio" name="provider" value="yahoo" /><img src="/images/main/site/openid/yahoo.gif" /></a>
+				</div>
+				<div class="aol openid_large_btn" title="AOL">
+					<a><input type="radio" name="provider" value="aol" /><img src="/images/main/site/openid/aol.gif" /></a>
+				</div>
+				<br />
+				<div class="openid openid_small_btn" title="OpenID">
+					<a class="openid"><input type="radio" name="provider" value="openid" /><img src="/images/main/site/openid/openid.ico" /></a>
+				</div>
+				<div class="myopenid openid_small_btn" title="MyOpenID">
+					<a><input type="radio" name="provider" value="myopenid" /><img src="/images/main/site/openid/myopenid.ico" /></a>
+				</div>
+				<div class="livejournal openid_small_btn" title="LiveJournal">
+					<a><input type="radio" name="provider" value="livejournal" /><img src="/images/main/site/openid/livejournal.ico" /></a>
+				</div>
+				<div class="flickr openid_small_btn" title="Flickr">
+					<a><input type="radio" name="provider" value="flickr" /><img src="/images/main/site/openid/flickr.ico" /></a>
+				</div>
+				<div class="technorati openid_small_btn" title="Technorati">
+					<a><input type="radio" name="provider" value="technorati" /><img src="/images/main/site/openid/technorati.ico" /></a>
+				</div>
+				<div class="wordpress openid_small_btn" title="Wordpress">
+					<a><input type="radio" name="provider" value="wordpress" /><img src="/images/main/site/openid/wordpress.ico" /></a>
+				</div>
+				<div class="blogger openid_small_btn" title="Blogger">
+					<a><input type="radio" name="provider" value="blogger" /><img src="/images/main/site/openid/blogger.ico" /></a>
+				</div>
+				<div class="verisign openid_small_btn" title="Verisign">
+					<a><input type="radio" name="provider" value="verisign" /><img src="/images/main/site/openid/verisign.ico" /></a>
+				</div>
+				<div class="vidoop openid_small_btn" title="Vidoop">
+					<a><input type="radio" name="provider" value="vidoop" /><img src="/images/main/site/openid/vidoop.ico" /></a>
+				</div>
+				<div class="claimid openid_small_btn" title="ClaimID">
+					<a><input type="radio" name="provider" value="claimid" /><img src="/images/main/site/openid/claimid.ico" /></a>
+				</div>
+			</div>
+		</div>
+		<div id="openid_input_area">
+			<p>enter your account, username, or screenname</p>
+			<input class="textField" id="openid_identifier" name="openid_identifier" type="text" value="" />
+			<input class="button" id="openid_submit" type="submit" value="login" />
+		</div>
+		<noscript>
+			<p class="openIDNoScript">
+				OpenID is service that allows you to log-on to many different websites using a single indentity
+				<br />
+				find out <a href="http://openid.net/what/" target="_blank">more about OpenID</a> and <a href="http://openid.net/get/" target="_blank">how to get an OpenID enabled account</a>
+			</p>
+		</noscript>
+	</form>
+</div>
+<div class="registrationContainer">
+	<div class="message">don't have an account? sign up in seconds:</div>
+	<form action="/user/register" method="post" class="register">
+		<table>
+			<tr>
+				<td>
+					<label for="email" class="{if 'email'|in_array:$errorFields}errorLabel{else}normalLabel{/if}">
+						email
+					</label>
+				</td>
+				<td>
+					<input type="text" name="email" id="email" value="{$user.email}" class="textField" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label for="userName" class="{if 'userName'|in_array:$errorFields}errorLabel{else}normalLabel{/if}">
+						username
+					</label>
+				</td>
+				<td>
+					<input type="text" name="userName" id="userName" value="{$user.userName}" class="textField" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label for="password" class="{if 'password'|in_array:$errorFields}errorLabel{else}normalLabel{/if}">
+						password
+					</label>
+				</td>
+				<td>
+					<input type="password" name="password" id="password" value="{$user.password}" class="textField" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label for="passwordConfirm" class="{if 'passwordConfirm'|in_array:$errorFields}errorLabel{else}normalLabel{/if}">
+						confirm password
+					</label>
+				</td>
+				<td>
+					<input type="password" name="passwordConfirm" id="passwordConfirm" value="" class="textField" />
+				</td>
+			</tr>
+			<tr class="captcha">
+				<td>
+					<label for="captcha" class="{if 'captcha'|in_array:$errorFields}errorLabel{else}normalLabel{/if}">
+						are you robot?<br />enter the text in the image &raquo;
+					</label>
+				</td>
+				<td>
+					<img src="/images/{$smarty.now}/captcha.jpg" />
+					<input type="text" name="captcha" id="captcha" value="" class="textField" />
+				</td>
+			</tr>
+			<tr><td colspan="2">&nbsp;</td></tr>
+			<tr class="terms">
+				<td colspan="2">
+					<input type="checkbox" name="userAgreement" id="userAgreement" /> i have read and accept the <a href="/article/userterms" style="text-decoration: underline" target="_blank">user conditions</a>
+				</td>
+			</tr>
+			<tr><td colspan="2">&nbsp;</td></tr>
+			<tr>
+				<td colspan="2">
+					<input type="submit" name="submit" value="register" class="button" />
+				</td>
+			</tr>
+		</table>
+		<input type="hidden" name="action" value="register" />
+	</form>
+</div>
+
+{include file="site/footer.htm"}

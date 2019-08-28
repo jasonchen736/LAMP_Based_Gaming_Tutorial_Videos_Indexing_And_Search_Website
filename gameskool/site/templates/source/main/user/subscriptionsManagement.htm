@@ -1,0 +1,63 @@
+{include file="site/header.htm"}
+{include file="site/sidebar.htm"}
+
+{literal}
+<script type="text/javascript">
+$(function() {
+	$('#gameTitle').autocomplete('/process/suggestion', {extraParams: {type:'gameTitle'}, delay:0, minChars:1, formatItem:formatItem});
+});
+function formatItem(row) {
+	return row[0];
+}
+</script>
+{/literal}
+
+<table class="subscriptions">
+	<tr>
+		<td colspan="2">
+			<form action="{$searchURL}" method="post">
+				<input type="text" name="search" id="gameTitle" value="{$searchQuery.search}" class="textField" />
+				<input type="submit" name="submit" value="search games" class="button" />
+			</form>
+		</td>
+	</tr>
+	<tr><td colspan="2">&nbsp;</td></tr>
+	<tr>
+		<td>
+{if !empty($gameTitles)}
+			<ul class="titles">
+{foreach from=$gameTitles item=game}
+				<li>[<a href="/user/mygames/action/add/gameID/{$game.gameTitleID}">subscribe</a>] <a href="/game/{$game.gameTitleURL}">{$game.gameTitle}</a></li>
+{/foreach}
+			</ul>
+{if $from > 0 || $next < $totalGames}
+			<div class="page">
+{if $from > 0}
+				<a href="{$pageURL}/from/{$prev}{$searchQuery.type}{$searchQuery.search}">prev</a>&nbsp;
+{/if}
+{if $next < $totalGames}
+				<a href="{$pageURL}/from/{$next}{$searchQuery.type}{$searchQuery.search}">next</a>
+{/if}
+			</div>
+{/if}
+{else}
+			there were no game titles found, are you sure you spelled it right?
+            <br />
+            or maybe you could <a href="/submit">submit a post</a>
+{/if}
+		</td>
+		<td>
+{if !empty($subscriptions)}
+			<ul class="subscribed">
+{foreach from=$subscriptions item=game}
+				<li>[<a href="/user/mygames/action/remove/gameID/{$game.gameTitleID}">remove</a>] <a href="/game/{$game.gameTitleURL}">{$game.gameTitle}</a></li>
+{/foreach}
+			</ul>
+{else}
+			subscribe to some games already!
+{/if}
+		</td>
+	</tr>
+</table>
+
+{include file="site/footer.htm"}

@@ -1,0 +1,30 @@
+{include file="admin/adminHeader.htm"}
+
+<div>
+	<form action="{$smarty.server.PHP_SELF}" method="post">
+		<input type="hidden" name="action" value="renameContentImage" />
+		<input type="hidden" name="imageID" value="{$image.imageID}" />
+		<table>
+			<tr>
+				<td><input class="button" type="submit" name="submit" value="Rename Image" /></td>
+				<td><input type="text" name="name" value="" /></td>
+			</tr>
+		</table>
+	</form>
+	<form action="{$smarty.server.PHP_SELF}" method="post" enctype="multipart/form-data">
+		<input type="hidden" name="action" value="replaceContentImage" />
+		<input type="hidden" name="imageID" value="{$image.imageID}" />
+		<table>
+			<tr>
+				<td><input class="button" type="submit" name="submit" value="Replace Image" /></td>
+				<td><input type="file" name="image" value="" /></td>
+			</tr>
+		</table>
+	</form>
+</div>
+<br />
+<div id="imageContainer">
+	<img src="/images/{$smarty.now}/content/{$image.image}" />
+</div>
+
+{include file="admin/adminFooter.htm"}

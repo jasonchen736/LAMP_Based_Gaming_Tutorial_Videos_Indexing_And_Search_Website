@@ -1,0 +1,98 @@
+{include file="site/header.htm"}
+{if ($reply || $edit) && $topUser.userType}
+<script type="text/javascript">
+	var comment = {if $reply}{$reply}{else}{$edit}{/if};
+</script>
+{/if}
+<div class="postComments">
+{if !empty($post)}
+	<div class="postInfo">
+		{include file="site/postComments.`$post.type`.htm"}
+	</div>
+{if $topUser.userType}
+	<div class="new">
+		<form action="{$selfURL}" method="post">
+			<textarea name="commentText"></textarea>
+			<input type="submit" name="submit" value="save" class="button" />
+			<a href="/article/formattinghelp" class="formattingHelp">formatting help</a>
+			<input type="hidden" name="action" value="comment" />
+		</form>
+	</div>
+{/if}
+{if !empty($comments)}
+{foreach from=$comments item=comment}
+	<div class="comment" style="margin-left: {$comment.indent*20}px">
+		<div class="vote">
+			<div class="voteScore">
+				{$comment.totalVotes}
+			</div>
+			<div class="voteOptions">
+				<a class="voteUp" href="{if $loggedin}/process/commentVote/post/{$post.postID}/comment/{$comment.postCommentID}/vote/up{getSearch}{else}/user/register/to/vote{/if}">
+					<img src="/images/main/site/{if $commentVotes[$comment.postCommentKey] == 1}upVoteDark.gif{else}upBlankDark.gif{/if}"/>
+				</a>
+				<a class="voteDown" href="{if $loggedin}/process/commentVote/post/{$post.postID}/comment/{$comment.postCommentID}/vote/down{getSearch}{else}/user/register/to/vote{/if}">
+					<img src="/images/main/site/{if $commentVotes[$comment.postCommentKey] == -1}downVoteDark.gif{else}downBlankDark.gif{/if}"/>
+				</a>
+			</div>
+		</div>
+		<div class="commentWrap">
+			<a href="/comments/by/{if $comment.poster != 'anonymous'}{$comment.poster}/{$comment.posterName}{else}anonymous/user{/if}">{$comment.posterName}</a> {$comment.timePosted} ago
+			<div class="commentBody">
+{if $edit != $comment.postCommentID}
+				{$comment.comment}
+{else}
+				<div class="edit">
+					<form action="{$selfURL}" method="post">
+						<textarea name="commentText" id="commentText{$comment.postCommentID}">{$comment.comment}</textarea>
+						<input type="submit" name="submit" value="update" class="button" />
+						<a href="/article/formattinghelp" class="formattingHelp">formatting help</a>
+						<input type="hidden" name="edit" value="{$edit}" />
+						<input type="hidden" name="action" value="edit" />
+					</form>
+				</div>
+{/if}
+			</div>
+			<a href="/comments/{$post.gameTitle}/{$post.postTitle}/comment/{$comment.postCommentID}" rel="nofollow">permalink</a>&nbsp;
+{if $comment.indent == 0 && $comment.parentCommentID > 0}
+			<a href="/comments/{$post.gameTitle}/{$post.postTitle}/comment/{$comment.parentCommentID}" rel="nofollow">parent</a>&nbsp;
+{/if}
+			<a href="{$selfURL}/reply/{$comment.postCommentID}" rel="nofollow">reply</a>&nbsp;
+{if $comment.poster == $topUser.userType && $comment.posterID == $topUser.userID}
+			<a href="{$selfURL}/edit/{$comment.postCommentID}" rel="nofollow">edit</a>
+{/if}
+{if $reply == $comment.postCommentID}
+{if $topUser.userType}
+			<div class="reply">
+				<form action="{$selfURL}" method="post">
+					<textarea name="commentText" id="commentText{$comment.postCommentID}"></textarea>
+					<input type="submit" name="submit" value="save" class="button" />
+					<input type="submit" name="cancel" value="cancel" class="button" />
+					<a href="/article/formattinghelp" class="formattingHelp">formatting help</a>
+					<input type="hidden" name="replyTo" value="{$reply}" />
+					<input type="hidden" name="action" value="reply" />
+				</form>
+			</div>
+{/if}
+{/if}
+		</div>
+	</div>
+{/foreach}
+{if $prev > 0 || $next < $totalComments}
+	<div class="page">
+{if $prev > 0}
+		<a href="/comments/{$post.gameTitle}/{$post.postTitle}/from/{$prev}">prev</a>&nbsp;
+{/if}
+{if $next < $totalComments}
+		<a href="/comments/{$post.gameTitle}/{$post.postTitle}/from/{$next}">next</a>
+{/if}
+	</div>
+{/if}
+{else}
+	there are no comments here
+{/if}
+{else}
+	that post does not exist
+{/if}
+</div>
+
+{include file="site/footer.htm"}

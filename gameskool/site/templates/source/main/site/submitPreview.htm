@@ -1,0 +1,17 @@
+{include file="site/header.htm"}
+
+<div class="postPanelPreview">
+	<div class="confirm">
+		<span>please double check your submission:</span>
+		<form action="/submit/" method="post">
+			<input type="submit" name="submit" value="looks good" class="button" />
+			<input type="hidden" name="action" value="save" />
+		</form>
+		<form action="/submit/" method="post">
+			<input type="submit" name="submit" value="wait, go back" class="button" />
+		</form>
+	</div>
+    {include file="site/submitPreview.`$post.type`.htm"}
+</div>
+
+{include file="site/footer.htm"}

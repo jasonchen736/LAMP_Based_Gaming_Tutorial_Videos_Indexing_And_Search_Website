@@ -1,0 +1,49 @@
+{include file="site/header.htm"}
+
+{if !empty($post.postID)}
+{if !empty($revisionRecords)}
+<form action="/user/edit" method="post" class="revisionHistory">
+	<table>
+		<tr>
+			<td colspan="4">
+				<a href="/post/{$post.gameTitle}/{$post.postTitle}">post</a>
+				&nbsp;
+				<a href="/user/edit/game/{$post.gameTitle}/post/{$post.postTitle}">edit</a>
+			</td>
+		</tr>
+		<tr><td colspan="4">&nbsp;</td></tr>
+		<tr>
+			<th>made on</th>
+			<th>by</th>
+			<th>compare</th>
+			<th>revert</th>
+		</tr>
+	{foreach from=$revisionRecords key=index item=revisionRecord}
+		<tr>
+			<td>{$revisionRecord.posted|date_format:"%m/%d/%Y"}</td>
+			<td><a href="/by/{if $revisionRecord.poster != 'anonymous'}{$revisionRecord.poster}/{$revisionRecord.posterName}{else}anonymous/user{/if}">{$revisionRecord.posterName}</a></td>
+			<td>
+				<input type="radio" name="r1" value="{$revisionRecord.postContentRevisionID}" />
+				<input type="radio" name="r2" value="{$revisionRecord.postContentRevisionID}" />
+			</td>
+			<td>{if $index != 0}<a href="/user/edit/action/revert/postID/{$post.postID}/version/{$revisionRecord.postContentRevisionID}">revert to this version</a>{else}current{/if}</td>
+		</tr>
+	{/foreach}
+		<tr><td colspan="4">&nbsp;</td></tr>
+		<tr>
+			<td colspan="4">
+				<input type="submit" name="submit" value="compare" class="button" />
+			</td>
+		</tr>
+	</table>
+	<input type="hidden" name="action" value="compare" />
+	<input type="hidden" name="postID" value="{$post.postID}" />
+</form>
+{else}
+uh oh, there are no revision records for this post, but there should be... this is no good... wait, what's that? oh no... oh no! ... NOoooOo
+{/if}
+{else}
+this post doesn't exist, what's going on here?
+{/if}
+
+{include file="site/footer.htm"}

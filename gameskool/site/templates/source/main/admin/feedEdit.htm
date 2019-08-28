@@ -1,0 +1,243 @@
+{include file="admin/adminHeader.htm"}
+
+<form action="{$smarty.server.PHP_SELF}" method="post">
+	<table id="editTable">
+		<tr>
+			<td id="editMenuCell">
+				<ul id="editMenu">
+					<li class="head">&nbsp;</li>
+					<li class="editMenuOption{if !$propertyMenuItem || $propertyMenuItem == 'feed_main'} selected{/if}" id="feed_main">Feed Details</li>
+					<li class="end">&nbsp;</li>
+				</ul>
+				<div id="editActionContainer">
+{if $mode == 'edit'}
+					<input type="hidden" name="action" value="updateFeed" />
+					<input type="hidden" name="feedID" value="{$feed.feedID}" />
+					<input class="button" type="submit" name="submit" value="Update" />
+					<br class="clear" />
+					<br class="clear" />
+					<a href="/admin/feedsManagement/action/addFeed/feedID/{$feed.feedID}" class="button">Duplicate Feed</a>
+{else}
+					<input type="hidden" name="action" value="saveFeed" />
+					<input class="button" type="submit" name="submit" value="Add and Edit" />
+					<br class="clear" />
+					<input class="button" type="submit" name="submit" value="Add Another" />
+{/if}
+				</div>
+			</td>
+			<td id="editPropertyCell">
+				<div id="feed_mainContainer" class="propertyContainer{if $propertyMenuItem && $propertyMenuItem != 'feed_main'} hidden{/if}">
+					<table>
+{if $mode == 'edit'}
+						<tr>
+							<td><span class="normalLabel">Feed ID:</span></td>
+							<td>{$feed.feedID}</td>
+						</tr>
+						<tr>
+							<td><span class="normalLabel">Date Added:</span></td>
+							<td>{$feed.dateAdded|date_format:"%m/%d/%Y %r"}</td>
+						</tr>
+						<tr>
+							<td><span class="normalLabel">Last Modified:</span></td>
+							<td>{$feed.lastModified|date_format:"%m/%d/%Y %r"}</td>
+						</tr>
+{/if}
+						<tr>
+							<td>
+								<span class="{if 'postType'|in_array:$errorFields}errorLabel{else}normalLabel{/if}">Type:</span>
+							</td>
+							<td style="width: 700px">
+								{html_options name="postType" options=$postTypes selected=$feed.postType}
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<span class="{if 'url'|in_array:$errorFields}errorLabel{else}normalLabel{/if}">Feed URL:</span>
+							</td>
+							<td>
+								<input type="text" name="url" value="{$feed.url}" style="width: 75%" />
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<span class="{if 'source'|in_array:$errorFields}errorLabel{else}normalLabel{/if}">Source:</span>
+							</td>
+							<td>
+								<select name="source">
+									<option value=""></option>
+									{html_options options=$sources selected=$feed.source}
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<span class="{if 'gameTitleID'|in_array:$errorFields}errorLabel{else}normalLabel{/if}">Game Title:</span>
+							</td>
+							<td>
+								<input type="text" name="gameTitleID" id="gameTitle" value="{$gameTitle}" style="width: 75%" />
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<span class="{if 'parameters'|in_array:$errorFields}errorLabel{else}normalLabel{/if}">Parameters:</span>
+							</td>
+							<td>
+								<input type="text" name="parameters" value="{$feed.parameters}" style="width: 75%" />
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<span class="{if 'entryPath'|in_array:$errorFields}errorLabel{else}normalLabel{/if}">Entry Path:</span>
+							</td>
+							<td>
+								<input type="text" name="entryPath" value="{$feed.entryPath}" style="width: 75%" />
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<span class="{if 'gameTitlePath'|in_array:$errorFields}errorLabel{else}normalLabel{/if}">Game Title Path:</span>
+							</td>
+							<td>
+								<input type="text" name="gameTitlePath" value="{$feed.gameTitlePath}" style="width: 75%" />
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<span class="{if 'identifierPath'|in_array:$errorFields}errorLabel{else}normalLabel{/if}">Identifier Path:</span>
+							</td>
+							<td>
+								<input type="text" name="identifierPath" value="{$feed.identifierPath}" style="width: 75%" />
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<span class="{if 'postTitlePath'|in_array:$errorFields}errorLabel{else}normalLabel{/if}">Post Title Path:</span>
+							</td>
+							<td>
+								<input type="text" name="postTitlePath" value="{$feed.postTitlePath}" style="width: 75%" />
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<span class="{if 'urlPath'|in_array:$errorFields}errorLabel{else}normalLabel{/if}">URL Path:</span>
+							</td>
+							<td>
+								<input type="text" name="urlPath" value="{$feed.urlPath}" style="width: 75%" />
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<span class="{if 'imagePath'|in_array:$errorFields}errorLabel{else}normalLabel{/if}">Image Path:</span>
+							</td>
+							<td>
+								<input type="text" name="imagePath" value="{$feed.imagePath}" style="width: 75%" />
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<span class="{if 'descriptionPath'|in_array:$errorFields}errorLabel{else}normalLabel{/if}">Description Path:</span>
+							</td>
+							<td>
+								<input type="text" name="descriptionPath" value="{$feed.descriptionPath}" style="width: 75%" />
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<span class="{if 'contentPath'|in_array:$errorFields}errorLabel{else}normalLabel{/if}">Content Path:</span>
+							</td>
+							<td>
+								<input type="text" name="contentPath" value="{$feed.contentPath}" style="width: 75%" />
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<span class="{if 'require'|in_array:$errorFields}errorLabel{else}normalLabel{/if}">Require:</span>
+							</td>
+							<td>
+								<input type="text" name="require" value="{$feed.require}" style="width: 75%" />
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<span class="{if 'reject'|in_array:$errorFields}errorLabel{else}normalLabel{/if}">Reject:</span>
+							</td>
+							<td>
+								<input type="text" name="reject" value="{$feed.reject}" style="width: 75%" />
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<span class="{if 'replace'|in_array:$errorFields}errorLabel{else}normalLabel{/if}">Replace:</span>
+							</td>
+							<td>
+								<input type="text" name="replace" value="{$feed.replace}" style="width: 75%" />
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<span class="{if 'status'|in_array:$errorFields}errorLabel{else}normalLabel{/if}">Status:</span>
+							</td>
+							<td>
+								{html_options name=status options=$statusOptions selected=$feed.status}
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<span class="{if 'interval'|in_array:$errorFields}errorLabel{else}normalLabel{/if}">Interval:</span>
+							</td>
+							<td>
+								{html_options name=interval options=$intervalOptions selected=$feed.interval}
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<span class="{if 'priority'|in_array:$errorFields}errorLabel{else}normalLabel{/if}">Priority:</span>
+							</td>
+							<td>
+								<input type="text" name="priority" value="{$feed.priority}" style="width: 50px" />
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<span class="{if 'posterID'|in_array:$errorFields}errorLabel{else}normalLabel{/if}">Submit With:</span>
+							</td>
+							<td>
+								<input type="text" name="posterID" value="{$feed.posterID}" style="width: 100px" />
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<span class="{if 'poster'|in_array:$errorFields}errorLabel{else}normalLabel{/if}">User Type:</span>
+							</td>
+							<td>
+								{html_options name=poster options=$userTypes selected=$feed.poster}
+							</td>
+						</tr>
+{if $mode == 'edit'}
+						<tr><td colspan="2">&nbsp;</td></tr>
+{if $feed.source == 'Youtube'}
+						<tr>
+							<td colspan="2">
+								Run feed for {html_options name=timeFrame options=$timeOptions},
+								&nbsp;start on result <input type="text" name="startOn" value="1" style="width: 50px" />
+								&nbsp;and process through <input type="text" name="processThrough" value="50" style="width: 50px" /> results
+								&nbsp;<input class="button" type="submit" name="submit" value="Run Feed" />
+							</td>
+						</tr>
+{else}
+						<tr>
+							<td colspan="2">
+								<input class="button" type="submit" name="submit" value="Run Feed" />
+							</td>
+						</tr>
+{/if}
+{/if}
+					</table>
+				</div>
+			</td>
+		</tr>
+	</table>
+	<input type="hidden" name="propertyMenuItem" id="propertyMenuItem" value="{$propertyMenuItem}" />
+</form>
+
+{include file="admin/adminFooter.htm"}

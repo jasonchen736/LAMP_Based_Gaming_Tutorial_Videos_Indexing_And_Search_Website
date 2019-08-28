@@ -1,0 +1,16 @@
+{include file="site/header.htm"}
+{if $post.type == 'blog' || $post.type == 'wiki'}{include file="site/sidebar.htm"}{/if}
+
+<script type="text/javascript">
+	var postID = {$post.postID};
+</script>
+
+<div class="postPanel">
+{if $post}
+	{include file="site/post.`$post.type`.htm"}
+{else}
+	that post does not exist
+{/if}
+</div>
+
+{include file="site/footer.htm"}

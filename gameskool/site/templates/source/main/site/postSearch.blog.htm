@@ -1,0 +1,17 @@
+<div class="details blog">
+	<h3 class="title">
+		<a href="/post/{$post.gameTitleURL}/{$post.postTitleURL}">{$post.gameTitle} - {$post.postTitle}</a>
+	</h3>
+	<div class="brief">
+		{$post.description}
+	</div>
+	<div class="options">
+		submitted {$post.timeSubmitted} ago by <a href="/by/{if $post.poster != 'anonymous'}{$post.poster}/{$post.posterName}{else}anonymous/user{/if}">{$post.posterName}</a> for <a href="/game/{$post.gameTitleURL}">{$post.gameTitle}</a>
+		<br />
+		<a href="/comments/{$post.gameTitleURL}/{$post.postTitleURL}">{if $post.comments > 0}{$post.comments} {/if}comment{if $post.comments != 1}s{/if}</a>
+{if $post.poster == 'user' && $post.posterID == $user.userID}
+		.
+		<a href="/user/edit/game/{$post.gameTitleURL}/post/{$post.postTitleURL}">edit</a>
+{/if}
+	</div>
+</div>

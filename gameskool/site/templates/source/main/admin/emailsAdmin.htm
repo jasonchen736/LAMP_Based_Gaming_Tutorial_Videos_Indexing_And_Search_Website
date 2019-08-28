@@ -1,0 +1,150 @@
+{include file="admin/adminHeader.htm"}
+
+<p class="adminOption"><a href="{$smarty.server.PHP_SELF}/action/addEmail" class="greenPlus">New Email</a></p>
+
+{include file="admin/pagination.htm"}
+
+<form action="{$smarty.server.PHP_SELF}/_sortField/{$query.sortField}/_sortOrder/{$query.sortOrder}{if $querystring}/{$querystring}{/if}" method="post">
+	<input type="hidden" name="runSearch" value="true" />
+
+	<table class="recordsTable">
+
+		<tr class="recordsHeader">
+			<td colspan="3">&nbsp;</td>
+			<td align="right"><a href="{$smarty.server.PHP_SELF}/_sortField/emailID/_sortOrder/{if $query.sortField == 'emailID'}{$query.revSortOrder}{else}ASC{/if}{if $query.querystring}/{$query.querystring}{/if}">Email ID</a></td>
+			<td><a href="{$smarty.server.PHP_SELF}/_sortField/name/_sortOrder/{if $query.sortField == 'name'}{$query.revSortOrder}{else}ASC{/if}{if $query.querystring}/{$query.querystring}{/if}">Name</a></td>
+			<td><a href="{$smarty.server.PHP_SELF}/_sortField/subject/_sortOrder/{if $query.sortField == 'subject'}{$query.revSortOrder}{else}ASC{/if}{if $query.querystring}/{$query.querystring}{/if}">Subject</a></td>
+			<td align="right"><a href="{$smarty.server.PHP_SELF}/_sortField/headerID/_sortOrder/{if $query.sortField == 'headerID'}{$query.revSortOrder}{else}ASC{/if}{if $query.querystring}/{$query.querystring}{/if}">Header</a></td>
+			<td align="right"><a href="{$smarty.server.PHP_SELF}/_sortField/footerID/_sortOrder/{if $query.sortField == 'footerID'}{$query.revSortOrder}{else}ASC{/if}{if $query.querystring}/{$query.querystring}{/if}">Footer</a></td>
+			<td align="right"><a href="{$smarty.server.PHP_SELF}/_sortField/dateAdded/_sortOrder/{if $query.sortField == 'dateAdded'}{$query.revSortOrder}{else}ASC{/if}{if $query.querystring}/{$query.querystring}{/if}">Date Added</a></td>
+			<td align="right"><a href="{$smarty.server.PHP_SELF}/_sortField/lastModified/_sortOrder/{if $query.sortField == 'lastModified'}{$query.revSortOrder}{else}ASC{/if}{if $query.querystring}/{$query.querystring}{/if}">Last Modified</a></td>
+		</tr>
+
+		<tr class="recordSearchHeader">
+			<td colspan="3">
+				<input class="button" type="reset" value="Reset" />
+				<br class="clear" />
+				<input class="button" type="submit" value="Search" />
+			</td>
+			<td class="idField"><input type="text" name="emailID" value="{$search.emailID.value}" /></td>
+			<td>
+				<input type="text" name="name" value="{$search.name.value}" />
+				<input type="hidden" name="name_operator" value="contains" />
+			</td>
+			<td>
+				<input type="text" name="subject" value="{$search.subject.value}" />
+				<input type="hidden" name="subject_operator" value="contains" />
+			</td>
+			<td class="idField"><input type="text" name="headerID" value="{$search.headerID.value}" /></td>
+			<td class="idField"><input type="text" name="footerID" value="{$search.footerID.value}" /></td>
+			<td>
+				<table class="searchSection dateSelect">
+					<tr>
+						<td>From:&nbsp;</td>
+						<td>
+							<input type="text" name="dateAddedFrom" id="dateAddedFrom" value="{$search.dateAddedFrom.value|date_format:"%m/%d/%Y"}" />
+							<img src="/images/{$_SYSTEM->get('SOURCEDIR')}/admin/calendar.png" id="dateAddedFromButton" />
+						</td>
+					</tr>
+					<tr>
+						<td>To:</td>
+						<td>
+							<input type="text" name="dateAddedTo" id="dateAddedTo" value="{$search.dateAddedTo.value|date_format:"%m/%d/%Y"}" />
+							<img src="/images/{$_SYSTEM->get('SOURCEDIR')}/admin/calendar.png" id="dateAddedToButton" />
+						</td>
+					</tr>
+				</table>
+{literal}
+				<script type="text/javascript">
+					Calendar.setup(
+						{
+							inputField : "dateAddedFrom",
+							ifFormat : "%m/%d/%Y",
+							button : "dateAddedFromButton"
+						}
+					);
+					Calendar.setup(
+						{
+							inputField : "dateAddedTo",
+							ifFormat : "%m/%d/%Y",
+							button : "dateAddedToButton"
+						}
+					);
+				</script>
+{/literal}
+			</td>
+			<td>
+				<table class="searchSection dateSelect">
+					<tr>
+						<td>From:&nbsp;</td>
+						<td>
+							<input type="text" name="lastModifiedFrom" id="lastModifiedFrom" value="{$search.lastModifiedFrom.value|date_format:"%m/%d/%Y"}" />
+							<img src="/images/{$_SYSTEM->get('SOURCEDIR')}/admin/calendar.png" id="lastModifiedFromButton" />
+						</td>
+					</tr>
+					<tr>
+						<td>To:</td>
+						<td>
+							<input type="text" name="lastModifiedTo" id="lastModifiedTo" value="{$search.lastModifiedTo.value|date_format:"%m/%d/%Y"}" />
+							<img src="/images/{$_SYSTEM->get('SOURCEDIR')}/admin/calendar.png" id="lastModifiedToButton" />
+						</td>
+					</tr>
+				</table>
+{literal}
+				<script type="text/javascript">
+					Calendar.setup(
+						{
+							inputField : "lastModifiedFrom",
+							ifFormat : "%m/%d/%Y",
+							button : "lastModifiedFromButton"
+						}
+					);
+					Calendar.setup(
+						{
+							inputField : "lastModifiedTo",
+							ifFormat : "%m/%d/%Y",
+							button : "lastModifiedToButton"
+						}
+					);
+				</script>
+{/literal}
+			</td>
+		</tr>
+
+{section name=record loop=$records}
+		<tr class="{cycle values="recordsRowAlpha,recordsRowBeta"}">
+			<td align="center">
+				<a href="{$smarty.server.PHP_SELF}/action/preview/emailID/{$records[record].emailID}" class="viewContent iconOnly" title="Preview Email" target="_blank" onclick="window.open(this.href, 'Preview Email', 'width=600, height=400'); return false;">&nbsp;</a>
+			</td>
+			<td align="center">
+				<a href="{$smarty.server.PHP_SELF}/emailID/{$records[record].emailID}/action/editEmail" class="edit iconOnly" title="Edit Email">&nbsp;</a>
+			</td>
+			<td align="center">
+				<a href="{$smarty.server.PHP_SELF}/action/sendEmail/emailID/{$records[record].emailID}" class="forward iconOnly" title="Send Email">&nbsp;</a>
+			</td>
+			<td align="right">{$records[record].emailID}</td>
+			<td style="white-space: nowrap; overflow: hidden">{$records[record].name}</td>
+			<td style="white-space: nowrap; overflow: hidden">{$records[record].subject}</td>
+			<td align="right">{if $records[record].headerID > 0}<a href="/admin/emailSectionsManagement/emailSectionID/{$records[record].headerID}/action/editEmailSection" class="viewContent" title="Edit Header {$records[record].headerID}">{$records[record].headerID}</a>{else}{$records[record].headerID}{/if}</td>
+			<td align="right">{if $records[record].footerID > 0}<a href="/admin/emailSectionsManagement/emailSectionID/{$records[record].footerID}/action/editEmailSection" class="viewContent" title="Edit Footer {$records[record].footerID}">{$records[record].footerID}</a>{else}{$records[record].footerID}{/if}</td>
+			<td align="right">{$records[record].dateAdded|date_format:"%m/%d/%Y"}</td>
+			<td align="right">{$records[record].lastModified|date_format:"%m/%d/%Y"}</td>
+		</tr>
+{/section}
+
+		<tr class="recordsFooter">
+			<td colspan="3">&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+		</tr>
+
+	</table>
+
+</form>
+
+{include file="admin/adminFooter.htm"}

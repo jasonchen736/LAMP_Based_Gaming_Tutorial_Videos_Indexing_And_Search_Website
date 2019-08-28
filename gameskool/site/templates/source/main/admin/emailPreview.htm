@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+	<title>{$_TITLE}</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<link href="/images/{$_SYSTEM->get('SOURCEDIR')}/site/favicon.ico" type="image/x-icon" />
+{literal}
+	<style type="text/css">
+		body {background-color: #EFEFEF; padding: 10px}
+		div#main {background-color: #FFF; border-bottom: 1px solid #666; float: left; min-width: 99%; border: 1px solid #CCC}
+		div#sub {padding: 10px 15px 15px 15px}
+	</style>
+{/literal}
+</head>
+
+<body>
+
+<div id="main">
+	<div id="sub">
+
+{$html}
+		<hr />
+		<pre>
+{$text}
+		</pre>
+
+	</div>
+</div>
+
+</body>
+
+</html>

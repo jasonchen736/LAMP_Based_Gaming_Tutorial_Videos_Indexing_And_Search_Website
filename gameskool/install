@@ -1,0 +1,50 @@
+PHP should be compiled to support at least gd with ttf, curl, exif, jpeg, png, openssl, ftp, mysql
+
+Example config:
+
+./configure --with-apxs2=/usr/local/apache2/bin/apxs --with-openssl --with-zlib --with-curl --with-curlwrappers --enable-exif --enable-ftp --with-gd --with-png-dir=/usr/local/lib --with-jpeg-dir=/usr/local/ --with-mysql --with-ttf --enable-gd-native-ttf --with-freetype-dir=/usr/lib/
+
+Run database files (mysql db_name < text_file)
+
+Edit apache_conf to local install directory and other settings
+Edit httpd.conf to include apache_conf
+Edit site_conf to set database and other settings
+Edit cron/cron_conf to set database and other settings, these should follow your apache_conf and site_conf settings
+
+Make sure permissions are set for the template directories
+Make sure permissions are set for image directories
+  - content
+
+Install sphinx and compile indexes (you may set the sphinx paths to whatever you wish, but a default sphinx folder is already created in site/sphinx)
+  - Edit sphinx.conf as needed
+  - searchd --stop
+  - indexer --config /path/to/sphinx.conf --all
+  - searchd -c /path/to/sphinx.conf
+  - Ensure proc_open function is not diabled in php.ini
+  - Set crontab to reindex at frequent intervals
+    - 0 * * * * root /path/to/php -f /path/to/platform/installation/site/cron/updateTitlesIndex.php >> /dev/null 2>&1
+    - 0 4 * * * root /path/to/php -f /path/to/platform/installation/site/cron/updateMainIndex.php >> /dev/null 2>&1
+    - 0,5,10,15,20,25,30,35,40,45,50,55 * * * * root /path/to/php -f /path/to/platform/installation/site/cron/updateDeltaIndex.php >> /dev/null 2>&1
+
+Cron Setups
+  - See sphinx cron setup
+  - Game title statistics summary
+    - 0 * * * * root /path/to/php -f /path/to/platform/installation/site/cron/updateHotTitlesStatistic.php >> /dev/null 2>&1
+
+Edit emails to make sure they're sending (all emails must have a from and subject line)
+  - userActivation (Vars: activationCode, user)
+  - forgotPassword (Vars: password, user)
+
+See content.txt for default content pages
+
+Site Templates:
+  - There are two cofiguration fields that control your templating
+    - First is template_dir - this is your main template path
+    - The second is source_dir - this is a subdirectory under your main template path that contains your template files
+    - You may swap between templates by updating the source_dir configuration
+  - Following the source_dir configuration, there are four directories relevant to customizing your site templates: template source, css, images, js
+    - templates/source/[SOURCE_DIR]/
+    - site/www/css/[SOURCE_DIR]/
+    - site/www/images/[SOURCE_DIR]/
+    - site/www/js/[SOURCE_DIR]/
+  - Also edit the favicon.ico redirect in your apache_conf file

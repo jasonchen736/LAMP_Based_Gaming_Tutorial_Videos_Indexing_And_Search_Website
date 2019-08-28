@@ -1,0 +1,213 @@
+aboutus
+
+<p><span style="font-size: large;"><span style="color: #feff94;">Let's face it</span></span>, millions of people play video games on a daily basis and a lot of these people need help with said video games.</p>
+<p>&nbsp;</p>
+<p><br />People like you.</p>
+<p>&nbsp;</p>
+<p><br />So, you turn to FAQ sites or buy walkthroughs and guides, but for some inexplicable reason, you don't realize these sites and walkthroughs are all in TEXT. C'mon people, don't you think there should be an easier way? We live in the 21st century! More and more households have broadband, we have internet access in the palm of our friggin' hands, a black US President, Pinkberry AND Red Mango, and yet you're still wading through tons of text just to get help on a certain section of a particular video game. Do you still send your mail by carrier pigeon, too?</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>"Well, why aren't there any videos that can just show me how to get past this part?!"</p>
+<p>&nbsp;</p>
+<p>Ah, but there are.</p>
+<p>&nbsp;</p>
+<p>"Why can't I find it???"</p>
+<p>&nbsp;</p>
+<p>Because they are unorganized.</p>
+<p>&nbsp;</p>
+<p>"ARGHHH!!"</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>As fellow gamers ourselves, we at GameProtege know how you feel. This site was developed to give everyone easy access to video game walkthroughs/guides/FAQs/strategies in streaming video format. No more having to sift through enormous blocks of text just to solve a frustrating puzzle. Every video is sorted and categorized properly according to Title/Genre/System, etc. No more having to go through a bunch of useless videos before you find the one you're actually looking for. What makes it even better is that almost all content is user submitted and editable by users. Videos can also be voted up or voted down by users, depending on how useful the video is, so no need to wonder if that certain video will be helpful or not.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>"WTF? <span style="font-size: large;"><span style="color: #feff94;">This site is awesome!</span></span>"<br /><br />We know.</p>
+
+privacypolicy
+
+<h2><span style="color: #feff94;">What information do we collect?</span></h2>
+<p>We collect information from you when you register on our site or fill out a form.<br /><br />When registering on our site, as appropriate, you may be asked to enter your: name or e-mail address. You may, however, visit our site anonymously.</p>
+<p>&nbsp;</p>
+<h2><span style="color: #feff94;">What do we use your information for?</span></h2>
+<p>Any of the information we collect from you may be used in one of the following ways:</p>
+<p>&nbsp;</p>
+<p>&nbsp;- To personalize your experience (your information helps us to better respond to your individual needs) <br /> &nbsp;- To improve our website (we continually strive to improve our website offerings based on the information and feedback we receive from you) <br /> &nbsp;- To improve customer service (your information helps us to more effectively respond to your customer service requests and support needs) <br /> &nbsp;- To administer a contest, promotion, survey or other site feature <br /> &nbsp;- To send periodic emails</p>
+<p>&nbsp;</p>
+<p>If you decide to opt-in to our mailing list, you will receive emails that may include company news, updates, related product or service information, etc.<br /><br />Note: If at any time you would like to unsubscribe from receiving future emails, we include detailed unsubscribe instructions at the bottom of each email.</p>
+<p>&nbsp;</p>
+<h2><span style="color: #feff94;">How do we protect your information?</span></h2>
+<p>We implement a variety of security measures to maintain the safety of your personal information when you access your personal information.<br /><br />All supplied sensitive information is encrypted into our Database to be only accessed by those authorized with special access rights to our systems, and are required to keep the information confidential.</p>
+<p>&nbsp;</p>
+<h2><span style="color: #feff94;">Do we use cookies?</span></h2>
+<p>Yes (Cookies are small files that a site or its service provider transfers to your computer's hard drive through your Web browser (if you allow) that enables the sites or service providers systems to recognize your browser and capture and remember certain information<br /><br />We use cookies to understand and save your preferences for future visits and compile aggregate data about site traffic and site interaction so that we can offer better site experiences and tools in the future.</p>
+<p>&nbsp;</p>
+<h2><span style="color: #feff94;">Do we disclose any information to outside parties?</span></h2>
+<p>We do not sell, trade, or otherwise transfer to outside parties your personally identifiable information. This does not include trusted third parties who assist us in operating our website, conducting our business, or servicing you, so long as those parties agree to keep this information confidential. We may also release your information when we believe release is appropriate to comply with the law, enforce our site policies, or protect ours or others rights, property, or safety. However, non-personally identifiable visitor information may be provided to other parties for marketing, advertising, or other uses.</p>
+<p>&nbsp;</p>
+<h2><span style="color: #feff94;">California Online Privacy Protection Act Compliance</span></h2>
+<p>Because we value your privacy, we have taken the necessary precautions to be in compliance with the California Online Privacy Protection Act. We therefore will not distribute your personal information to outside parties without your consent.<br /><br />As part of the California Online Privacy Protection Act, all users of our site may make any changes to their information at anytime by logging into their control panel and going to the "account information" page.</p>
+<p>&nbsp;</p>
+<h2><span style="color: #feff94;">Children's Online Privacy Protection Act Compliance</span></h2>
+<p>We are in compliance with the requirements of COPPA (Children's Online Privacy Protection Act), we do not collect any information from anyone under 13 years of age. Our website, products and services are all directed to people who are at least 13 years old or older.</p>
+<p>&nbsp;</p>
+<h2><span style="color: #feff94;">Online Privacy Policy Only</span></h2>
+<p>This online privacy policy applies only to information collected through our website and not to information collected offline.</p>
+<p>&nbsp;</p>
+<h2><span style="color: #feff94;">Terms and Conditions</span></h2>
+<p>Please also visit our <a href="http://www.gameprotege.com/article/termsandconditions">Terms and Conditions section</a> establishing the use, disclaimers, and limitations of liability governing the use of our website</p>
+<p>&nbsp;</p>
+<h2><span style="color: #feff94;">Your Consent</span></h2>
+<p>By using our site, you consent to our website's privacy policy.</p>
+<p>&nbsp;</p>
+<h2><span style="color: #feff94;">Changes to our Privacy Policy</span></h2>
+<p>If we decide to change our privacy policy, we will post those changes on this page, send an email notifying you of any changes, and/or update the Privacy Policy modification date below.<br /><br />This policy was last modified on 7/14/09.</p>
+<p>&nbsp;</p>
+<h2><span style="color: #feff94;">Contacting Us</span></h2>
+<p>If there are any questions regarding this privacy policy you may contact us using the information below.<br /><br /><a href="mailto:customerservice@gameprotege.com">customerservice@gameprotege.com</a></p>
+
+contactus
+
+<p>If you have any questions, comments, or suggestions, please send it to us at:</p>
+<p>&nbsp;</p>
+<p><a href="mailto:customerservice@gameprotege.com">customerservice@gameprotege.com</a></p>
+<p>&nbsp;</p>
+<p>We are constantly trying to improve our site and tailoring it to your needs.</p>
+<p>&nbsp;</p>
+<p>Tell us what you would like to see! If the voices from the community are loud enough, there might be some changes coming your way.</p>
+
+termsandconditions AND userterms
+
+<h2><span style="color: #feff94;">Registration and Account Creation</span></h2>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h3><span style="color: #feff94;">Registration Information:</span></h3>
+<p>Game Protege may at times require that you register and/or set up an account to use certain portions of the website, or the website as a whole. In order to do so, you may be provided, or required to choose, a password, user name, and/or other registration information (collectively, "Registration Information"). You agree and represent that all Registration Information provided by you is accurate and up-to-date. If any of your Registration Information changes, you must update it by using the appropriate update mechanism on the website, if available. Otherwise, refer to our <a href="/article/privacypolicy">Privacy Policy</a>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h3><span style="color: #feff94;">Use of User ID/Password:</span></h3>
+<p>If you register and/or set up an account on the website, you will be solely responsible for maintaining the confidentiality of your Registration Information. You may not authorize others to use your Registration Information. You may not sub-license, transfer, sell or assign your Registration Information and/or this Agreement to any third party without our written approval. Any attempt to do so will be null and void and shall be considered a material breach of this Agreement.</p>
+<p>&nbsp;</p>
+<p>You are solely responsible for all usage or activity on your account including, but not limited to, use of the account by any person who uses your Registration Information, with or without authorization, or who has access to any computer on which your account resides or is accessible.</p>
+<p>&nbsp;</p>
+<p>If you have reason to believe that your account is no longer secure (for example, in the event of a loss, theft or unauthorized disclosure or use of your Registration Information), you must promptly change the affected Registration Information by using the appropriate update mechanism on the website, if available, or contact us immediately.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h2><span style="color: #feff94;">Monitoring</span></h2>
+<p>We are always striving to provide an enjoyable and fun online experience for our users, so we may monitor activity on the website, including forums and chats, to foster compliance with this Agreement. All users of the website hereby specifically agree to such monitoring. Nevertheless, we do not make any warranties or guarantees that: (1) the website, or any portion thereof, will be monitored for accuracy or unacceptable use, (2) apparent statements of fact will be authenticated, or (3) we will take any specific action (or any action at all) in the event of a dispute regarding compliance or non-compliance with this Agreement.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h2><span style="color: #feff94;">Rules of Usage</span></h2>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h3><span style="color: #feff94;">Use of the Service by You:</span></h3>
+<p>The website is not intended for users under the age of 13, and Game Protege does not knowingly collect personally identifiable information from users under the age of 13. Such users are expressly prohibited from submitting their personally identifiable information to us, and from using portions of the website for which registration is required, such as our forums, wiki, comments and chat areas; any information submitted by such users will not knowingly be used, posted, or retained by us.</p>
+<p>&nbsp;</p>
+<p>Unless otherwise specified, the website is intended for your personal use only. You may not authorize others to use the website, and you are responsible for all use of the website by you and by those you allow to use, or provide access to, the website. You may not impersonate, imitate or pretend to be somebody else when using the website.</p>
+<p>&nbsp;</p>
+<p>You may not provide to or post on or through the website any graphics, text, photographs, images, video, audio or other material that constitutes junk mail, spam, advertising, and/or commercial offers. You may not repeat the same posting multiple times in a day or week.</p>
+<p>&nbsp;</p>
+<p>You agree not to use any obscene, indecent, or offensive language or to provide to or post on or through the website any graphics, text, photographs, images, video, audio or other material that is defamatory, abusive, bullying, harassing, racist, hateful, or violent. You agree to refrain from ethnic slurs, religious intolerance, homophobia, and personal attacks when using the website.</p>
+<p>&nbsp;</p>
+<p>You further agree not to use any sexually suggestive language or to provide to or post on or through the website any graphics, text, photographs, images, video, audio or other material that is sexually suggestive or appeals to a prurient interest.</p>
+<p>You may not provide to or post on or through the website any graphics, text, photographs, images, video, audio or other material that invades anyone's privacy, or facilitates or encourages conduct that would constitute a criminal offense, give rise to civil liability, or that otherwise violates any local, state, federal, national or international law or regulation (e.g., drug use, underage drinking). You agree to use the website only for lawful purposes and you acknowledge that your failure to do so may subject you to civil and criminal liability. Do not provide to or post on or through the website any graphics, text, photographs, images, video, audio or other material that includes instructions for weapon and/or explosive manufacture or use.</p>
+<p>&nbsp;</p>
+<p>You are responsible for ensuring that any graphics, text, photographs, images, video, audio or other material you provide to or post on the website, including without limitation in forums, wikis, comments, chats or elsewhere, does not violate the copyright, trademark, trade secret or any other personal or proprietary rights of any third party or is provided or posted with the permission of the owner(s) of such rights.</p>
+<p>&nbsp;</p>
+<p>The website may contain graphics, text, photographs, images, video, audio and other material that is clearly identified for your use ("Assets"). The Assets are protected by state, national and international copyright, trademark and other intellectual property laws. Nevertheless, we (and our licensors) grant to you the limited, non-exclusive, right and license to use the Assets solely as described on the website, as limited by this Agreement, and provided further that you keep intact any and all copyright and other proprietary notices.</p>
+<p>&nbsp;</p>
+<p>The website also contains other graphics, text, photographs, images, video, audio, software, code, and other material that is provided by Game Protege or its licensors and is not clearly identified as, or intended, for your use, including without limitation the organization, design, compilation, and "look and feel" of the website, and advertising thereon ("website Content"). The website Content is protected by state, national and international copyright, trademark and other intellectual property laws, and is the property of Game Protege or its licensors. The copying, reproduction, publication, display, rearrangement, redistribution, modification, revision, alteration, cropping, re-sizing, reverse engineering, movement, removal, deletion, or other use or change by you, directly or indirectly, of any such website Content, including but not limited to the removal or alteration of advertising, is strictly prohibited.</p>
+<p>&nbsp;</p>
+<p>You may not in any way make commercial or other unauthorized use, by publication, re-transmission, distribution, performance, caching, or otherwise, of material obtained through the website, including without limitation the Assets or website Content, except as permitted by the Copyright Act or other law or as expressly permitted in writing by this Agreement, Game Protege or the website.</p>
+<p>&nbsp;</p>
+<p>You agree not to disrupt, overwhelm, attack, modify, reverse engineer or interfere with the website or its associated software, hardware and/or servers in any way, and you agree not to impede or interfere with others' use of the website.</p>
+<p>&nbsp;</p>
+<p>Other than connecting to Game Protege's servers by http requests using a Web browser, you may not attempt to gain access to Game Protege's servers by any means - including, without limitation, by using administrator passwords or by masquerading as an administrator while using the website or otherwise.</p>
+<p>&nbsp;</p>
+<p>You acknowledge that Game Protege has not reviewed and does not endorse the content of all sites linked to from this website and is not responsible for the content or actions of any other sites linked to from this website. Your linking to any service or site is at your sole risk.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h3><span style="color: #feff94;">Comments By Others Are Not Endorsed By Game Protege:</span></h3>
+<p>Game Protege does not necessarily endorse, support, sanction, encourage, verify, or agree with the comments, opinions, or statements posted on forums, wikis, chats or otherwise contained in the website. Any information or material placed online, including advice and opinions, are the views and responsibility of those who post the statements and do not necessarily represent the views of Game Protege or its third party service providers. You agree that Game Protege and its third party service providers are not responsible, and shall have no liability to you, with respect to any information or materials posted by others, including defamatory, offensive or illicit material, even material that violates this Agreement.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h3><span style="color: #feff94;">Use Of Material Supplied By You:</span></h3>
+<p>For information regarding use of information about you that you may supply or communicate to the website, please see our <a href="/article/privacypolicy">Privacy Policy</a>. Except as expressly provided otherwise in the Privacy Policy, you agree that by posting messages, uploading files, inputting data, or engaging in any other form of communication with or through the website, you grant us a royalty-free, perpetual, non-exclusive, unrestricted, worldwide license to use, reproduce, modify, adapt, translate, enhance, transmit, distribute, publicly perform, display, or sublicense any such communication in any medium (now in existence or hereinafter developed) and for any purpose, including commercial purposes, and to authorize others to do so. In addition, please be aware that information you disclose in publicly accessible portions of the website will be available to all users of the website, so you should be mindful of personal information and other content you may wish to post.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h3><span style="color: #feff94;">Indemnification:</span></h3>
+<p>You agree to indemnify Game Protege and its affiliates, employees, agents, representatives and third party service providers, and to defend and hold each of them harmless, from any and all claims and liabilities (including attorneys fees) which may arise from your submissions, from your unauthorized use of material obtained through the website, or from your breach of this Agreement, or from any such acts through your use of the website.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h3><span style="color: #feff94;">Editing And Deletions:</span></h3>
+<p>Game Protege reserves the right, but undertakes no duty, to review, edit, move or delete any material provided for display or placed on the website or its forums, in its sole discretion, without notice.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h3><span style="color: #feff94;">Additional Rules:</span></h3>
+<p>Game Protege reserves the right to post, from time to time, additional rules of usage that apply to specific parts of the website. Such additional rules will be posted in the relevant parts of the website. Your continued use of the website constitutes your agreement to comply with these additional rules.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h3><span style="color: #feff94;">Disclaimer Of Warranty And Limitation Of Liability:</span></h3>
+<p>YOU ACKNOWLEDGE THAT YOU ARE USING THE WEBSITE AT YOUR OWN RISK. THE WEBSITE IS PROVIDED "AS IS", AND GAME PROTEGE, ITS AFFILIATES AND ITS THIRD PARTY SERVICE PROVIDERS HEREBY EXPRESSLY DISCLAIM ANY AND ALL WARRANTIES, EXPRESS AND IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OF ACCURACY, RELIABILITY, TITLE, MERCHANTABILITY, NON-INFRINGEMENT, FITNESS FOR A PARTICULAR PURPOSE OR ANY OTHER WARRANTY, CONDITION, GUARANTEE OR REPRESENTATION, WHETHER ORAL, IN WRITING OR IN ELECTRONIC FORM, INCLUDING BUT NOT LIMITED TO THE ACCURACY OR COMPLETENESS OF ANY INFORMATION CONTAINED THEREIN OR PROVIDED BY THE WEBSITE. GAME PROTEGE, ITS AFFILIATES, AND ITS THIRD PARTY SERVICE PROVIDERS DO NOT REPRESENT OR WARRANT THAT ACCESS TO THE WEBSITE WILL BE UNINTERRUPTED OR THAT THERE WILL BE NO FAILURES, ERRORS OR OMISSIONS OR LOSS OF TRANSMITTED INFORMATION, OR THAT NO VIRUSES WILL BE TRANSMITTED ON THE WEBSITE.</p>
+<p>&nbsp;</p>
+<p>GAME PROTEGE, ITS AFFILIATES AND ITS THIRD PARTY SERVICE PROVIDERS SHALL NOT BE LIABLE TO YOU OR ANY THIRD PARTIES FOR ANY DIRECT, INDIRECT, SPECIAL, CONSEQUENTIAL OR PUNITIVE DAMAGES ALLEGEDLY SUSTAINED ARISING OUT OF THIS AGREEMENT, THE PROVIDING OF THE WEBSITE HEREUNDER, THE SALE OR PURCHASE OF ANY GOODS OR MERCHANDISE, YOUR ACCESS TO OR INABILITY TO ACCESS THE WEBSITE, INCLUDING FOR VIRUSES ALLEGED TO HAVE BEEN OBTAINED FROM THE WEBSITE, YOUR USE OF OR RELIANCE ON THE WEBSITE OR ANY OF THE MERCHANDISE, INFORMATION OR MATERIALS AVAILABLE ON THE WEBSITE, REGARDLESS OF THE TYPE OF CLAIM OR THE NATURE OF THE CAUSE OF ACTION, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. SOME STATES DO NOT ALLOW THE EXCLUSION OF IMPLIED WARRANTIES OR THE LIMITATION OR EXCLUSION OF LIABILITY FOR INCIDENTAL OR CONSEQUENTIAL DAMAGES, SO THE ABOVE EXCLUSIONS OR LIMITATIONS MAY NOT APPLY TO YOU. YOU MAY ALSO HAVE OTHER RIGHTS THAT VARY FROM STATE TO STATE.</p>
+<p>&nbsp;</p>
+<p>YOU HEREBY AGREE TO RELEASE GAME PROTEGE, ITS AFFILIATES AND THIRD-PARTY SERVICE PROVIDERS, AND EACH OF THEIR RESPECTIVE DIRECTORS, OFFICERS, EMPLOYEES, AND AGENTS FROM CLAIMS, DEMANDS AND DAMAGES (ACTUAL AND CONSEQUENTIAL) OF EVERY KIND AND NATURE, KNOWN AND UNKNOWN, SUSPECTED AND UNSUSPECTED, DISCLOSED AND UNDISCLOSED ("CLAIMS"), ARISING OUT OF OR IN ANY WAY CONNECTED WITH YOUR USE OF THIS SITE. IF YOU ARE A CALIFORNIA RESIDENT, YOU WAIVE CALIFORNIA CIVIL CODE SECTION 1542, WHICH STATES, IN PART: "A GENERAL RELEASE DOES NOT EXTEND TO CLAIMS WHICH THE CREDITOR DOES NOT KNOW OR SUSPECT TO EXIST IN HIS FAVOR AT THE TIME OF EXECUTING THE RELEASE, WHICH IF KNOWN BY HIM MUST HAVE MATERIALLY AFFECTED HIS SETTLEMENT WITH THE DEBTOR".</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h3><span style="color: #feff94;">Termination Or Suspension Of Access To The website:</span></h3>
+<p>Game Protege has the right to terminate and/or suspend your ability to access the website or any portion thereof, for any or no reason, without notice.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h3><span style="color: #feff94;">Jurisdiction:</span></h3>
+<p>Game Protege makes no representation that materials on the website are appropriate, available or legal in any particular location. Those who choose to access the website do so on their own initiative and are responsible for compliance with local laws, if and to the extent local laws are applicable.</p>
+<p>&nbsp;</p>
+<p>You agree that this Agreement, for all purposes, shall be governed and construed in accordance with the laws of the State of New York applicable to contracts to be wholly performed therein, and any action based on, relating to, or alleging a breach of this Agreement must be brought in a state or federal court in New York. In addition, both parties agree to submit to the exclusive personal jurisdiction and venue of such courts.</p>
+
+formattinghelp
+
+<h3><span style="color: #feff94;">You may use the following tags in your comments:</span></h3>
+<p>&nbsp;</p>
+<p>&lt;a&gt; &lt;strong&gt; &lt;b&gt; &lt;u&gt; &lt;i&gt; &lt;sub&gt; &lt;sup&gt; &lt;br&gt;</p>
+<p>&nbsp;</p>
+<p>&lt;a href="link"&gt;link&lt;/a&gt; : <a href="#">link</a></p>
+<p>&nbsp;</p>
+<p>&lt;strong&gt;strong&lt;/strong&gt; : <strong>strong</strong></p>
+<p>&nbsp;</p>
+<p>&lt;b&gt;bold&lt;/b&gt; : <strong>bold</strong></p>
+<p>&nbsp;</p>
+<p>&lt;u&gt;underline&lt;/u&gt; : <span style="text-decoration: underline;">underline</span></p>
+<p>&nbsp;</p>
+<p>&lt;i&gt;italicize&lt;/i&gt; : <em>italicize</em></p>
+<p>&nbsp;</p>
+<p>&lt;sub&gt;subscript&lt;/sub&gt; : <sub>subscript</sub></p>
+<p>&nbsp;</p>
+<p>&lt;sup&gt;superscript&lt;/sup&gt; : <sup>superscript</sup></p>
+<p>&nbsp;</p>
+<p>line&lt;br /&gt;break : line<br />break</p>
+
+repairs
+
+<h1 class="gp">Is your gaming system is busted?</h1>
+<p>Want to play but don't have the money to spend on a new system?</p>
+<p>Does the manufacturer charge an arm and a leg to fix your unit?</p>
+<br />
+<h1 class="gp">Maybe we can help</h1>
+<p>We fix broken systems.</p>
+<p>We do it fast, and we do it well!</p>
+<p>In fact, it's one of the only things we do well.</p>
+<p>We'll diagnose the problem for free.</p>
+<p>We'll tell you whether it can be fixed.</p>
+<p>We'll get your system back to you in a reasonable amount of time.</p>
+<p>And you won't pay near as much as the manufacturer's price.</p>
+<br />
+<h1 class="gp">So...</h1>
+<p>Fill out a quick form and tell us how you want to be contacted (or not).</p>
+<p>We'll drop a line (or not).</p>
+<p>Talk to us and tell us what's wrong (or not).</p>
+<p>If we can help, you can either drop your system off, or ship it to us.</p>
+<p>We'll fix it <a href="">(this is where you pay us)</a> and get you back to playing your games, <strong class="gp">worry free!</strong></p>
+<br />
+<p>So... what are you waiting for?</p>
+<p>Need to check our <a href="">street cred</a>?</p>
+<br /><br />
+<p><a class="button" href="/service/repairs">fix me up &raquo;</a></p>

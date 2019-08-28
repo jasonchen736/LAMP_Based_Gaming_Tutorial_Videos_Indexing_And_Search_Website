@@ -1,0 +1,101 @@
+{include file="admin/adminHeader.htm"}
+
+{include file="admin/pagination.htm"}
+
+<form action="{$smarty.server.PHP_SELF}/_sortField/{$query.sortField}/_sortOrder/{$query.sortOrder}{if $query.querystring}/{$query.querystring}{/if}" method="post">
+	<input type="hidden" name="runSearch" value="true" />
+
+<table class="recordsTable">
+
+	<tr class="recordsHeader">
+
+		<td>&nbsp;</td>
+		<td align="right"><a href="{$smarty.server.PHP_SELF}/_sortField/postID/_sortOrder/{if $query.sortField == 'postID'}{$query.revSortOrder}{else}ASC{/if}{if $query.querystring}/{$query.querystring}{/if}">Post ID</a></td>
+		<td align="right"><a href="{$smarty.server.PHP_SELF}/_sortField/views/_sortOrder/{if $query.sortField == 'views'}{$query.revSortOrder}{else}ASC{/if}{if $query.querystring}/{$query.querystring}{/if}">Views</a></td>
+		<td align="right"><a href="{$smarty.server.PHP_SELF}/_sortField/comments/_sortOrder/{if $query.sortField == 'comments'}{$query.revSortOrder}{else}ASC{/if}{if $query.querystring}/{$query.querystring}{/if}">Comments</a></td>
+		<td align="right"><a href="{$smarty.server.PHP_SELF}/_sortField/upVotes/_sortOrder/{if $query.sortField == 'upVotes'}{$query.revSortOrder}{else}ASC{/if}{if $query.querystring}/{$query.querystring}{/if}">Up Votes</a></td>
+		<td align="right"><a href="{$smarty.server.PHP_SELF}/_sortField/downVotes/_sortOrder/{if $query.sortField == 'downVotes'}{$query.revSortOrder}{else}ASC{/if}{if $query.querystring}/{$query.querystring}{/if}">Down Votes</a></td>
+	</tr>
+
+	<tr class="recordSearchHeader">
+		<td>
+			<input class="button" type="reset" value="Reset" />
+			<br class="clear" />
+			<input class="button" type="submit" value="Search" />
+		</td>
+		<td class="idField"><input type="text" name="postID" value="{$search.postID.value}" /></td>
+		<td>
+			<table class="searchSection smallRange">
+				<tr>
+					<td>From:&nbsp;</td>
+					<td><input type="text" name="viewsFrom" value="{$search.viewsFrom.value}" /></td>
+				</tr>
+				<tr>
+					<td>To:</td>
+					<td><input type="text" name="viewsTo" value="{$search.viewsTo.value}" /></td>
+				</tr>
+			</table>
+		</td>
+		<td>
+			<table class="searchSection smallRange">
+				<tr>
+					<td>From:&nbsp;</td>
+					<td><input type="text" name="commentsFrom" value="{$search.commentsFrom.value}" /></td>
+				</tr>
+				<tr>
+					<td>To:</td>
+					<td><input type="text" name="commentsTo" value="{$search.commentsTo.value}" /></td>
+				</tr>
+			</table>
+		</td>
+		<td>
+			<table class="searchSection smallRange">
+				<tr>
+					<td>From:&nbsp;</td>
+					<td><input type="text" name="upVotesFrom" value="{$search.upVotesFrom.value}" /></td>
+				</tr>
+				<tr>
+					<td>To:</td>
+					<td><input type="text" name="upVotesTo" value="{$search.upVotesTo.value}" /></td>
+				</tr>
+			</table>
+		</td>
+		<td>
+			<table class="searchSection smallRange">
+				<tr>
+					<td>From:&nbsp;</td>
+					<td><input type="text" name="downVotesFrom" value="{$search.downVotesFrom.value}" /></td>
+				</tr>
+				<tr>
+					<td>To:</td>
+					<td><input type="text" name="downVotesTo" value="{$search.downVotesTo.value}" /></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+
+{section name=record loop=$records}
+	<tr class="{cycle values="recordsRowAlpha,recordsRowBeta"}">
+		<td align="center"><a href="/admin/postsManagement/postID/{$records[record].postID}/action/editPost" class="viewContent iconOnly" title="Edit Post">&nbsp;</a></td>
+		<td align="right">{$records[record].postID}</td>
+		<td align="right">{$records[record].views}</td>
+		<td align="right">{$records[record].comments}</td>
+		<td align="right">{$records[record].upVotes}</td>
+		<td align="right">{$records[record].downVotes}</td>
+	</tr>
+{/section}
+
+	<tr class="recordsFooter">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+	</tr>
+
+</table>
+
+</form>
+
+{include file="admin/adminFooter.htm"}

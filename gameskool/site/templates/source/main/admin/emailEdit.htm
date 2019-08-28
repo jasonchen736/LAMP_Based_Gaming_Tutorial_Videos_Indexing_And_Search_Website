@@ -1,0 +1,81 @@
+{include file="admin/adminHeader.htm"}
+
+<form action="{$smarty.server.PHP_SELF}" method="post">
+	<table id="editTable">
+		<tr>
+			<td id="editMenuCell">
+				<ul id="editMenu">
+					<li class="head">&nbsp;</li>
+					<li class="editMenuOption{if !$propertyMenuItem || $propertyMenuItem == 'email_main'} selected{/if}" id="email_main">Email Details</li>
+					<li class="editMenuOption{if $propertyMenuItem == 'email_content'} selected{/if}" id="email_content">Email Content</li>
+					<li class="end">&nbsp;</li>
+				</ul>
+				<div id="editActionContainer">
+{if $mode == 'edit'}
+					<input type="hidden" name="action" value="updateEmail" />
+					<input type="hidden" name="emailID" value="{$email.emailID}" />
+					<input class="button" type="submit" name="submit" value="Update Email" />
+{else}
+					<input type="hidden" name="action" value="saveEmail" />
+					<input class="button" type="submit" name="submit" value="Add and Edit" />
+					<br class="clear" />
+					<input class="button" type="submit" name="submit" value="Add Another" />
+{/if}
+				</div>
+			</td>
+			<td id="editPropertyCell">
+				<div id="email_mainContainer" class="propertyContainer{if $propertyMenuItem && $propertyMenuItem != 'email_main'} hidden{/if}">
+					<table>
+{if $mode == 'edit'}
+						<tr>
+							<td><span class="normalLabel">Email ID:</span></td>
+							<td>{$email.emailID}</td>
+						</tr>
+{/if}
+						<tr>
+							<td><span class="{if 'name'|in_array:$errorFields}errorLabel{else}normalLabel{/if}">Name:</span>&nbsp;</td>
+							<td><input type="text" name="name" value="{$email.name}" /></td>
+						</tr>
+						<tr>
+							<td><span class="{if 'headerID'|in_array:$errorFields}errorLabel{else}normalLabel{/if}">Email Header:</span>&nbsp;</td>
+							<td>{html_options name=headerID options=$headers selected=$email.headerID}</td>
+						</tr>
+						<tr>
+							<td><span class="{if 'footerID'|in_array:$errorFields}errorLabel{else}normalLabel{/if}">Email Footer:</span>&nbsp;</td>
+							<td>{html_options name=footerID options=$footers selected=$email.footerID}</td>
+						</tr>
+						<tr>
+							<td><span class="{if 'fromEmail'|in_array:$errorFields}errorLabel{else}normalLabel{/if}">From Email:</span>&nbsp;</td>
+							<td><input type="text" name="fromEmail" value="{$email.fromEmail}" /></td>
+						</tr>
+					</table>
+				</div>
+				<div id="email_contentContainer" class="propertyContainer{if $propertyMenuItem != 'email_content'} hidden{/if}">
+					<table>
+						<tr>
+							<td>
+								<span class="{if 'subject'|in_array:$errorFields}errorLabel{else}normalLabel{/if}">Subject:</span><br />
+								<input type="text" name="subject" value="{$email.subject}" style="width: 500px" />
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<span class="{if 'html'|in_array:$errorFields}errorLabel{else}normalLabel{/if}">HTML:</span><br />
+								<textarea name="html" cols="100%" rows="14">{$email.html}</textarea>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<span class="{if 'text'|in_array:$errorFields}errorLabel{else}normalLabel{/if}">Text:</span><br />
+								<textarea name="text" cols="100%" rows="14">{$email.text}</textarea>
+							</td>
+						</tr>
+					</table>						
+				</div>
+			</td>
+		</tr>
+	</table>
+	<input type="hidden" name="propertyMenuItem" id="propertyMenuItem" value="{$propertyMenuItem}" />
+</form>
+
+{include file="admin/adminFooter.htm"}

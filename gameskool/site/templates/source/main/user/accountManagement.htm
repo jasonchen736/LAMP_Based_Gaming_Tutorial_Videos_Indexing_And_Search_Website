@@ -1,0 +1,65 @@
+{include file="site/header.htm"}
+
+<form action="{$smarty.server.PHP_SELF}" method="post" class="accountManagement">
+	<table>
+{if $hasPassword}
+		<tr>
+			<td>
+				<label for="password" class="{if 'password'|in_array:$errorFields}errorLabel{else}normalLabel{/if}">
+					current password
+				</label>
+			</td>
+			<td>
+				<input type="password" name="password" id="password" value="" class="textField" />
+			</td>
+		</tr>
+{/if}
+		<tr>
+			<td>
+				<label for="email" class="{if 'email'|in_array:$errorFields}errorLabel{else}normalLabel{/if}">
+					new email
+				</label>
+			</td>
+			<td>
+				<input type="text" name="email" id="email" value="" class="textField" />
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label for="password" class="{if 'newPassword'|in_array:$errorFields}errorLabel{else}normalLabel{/if}">
+{if $external && !$hasPassword}
+					create a password (optional)
+{else}
+					new password
+{/if}
+				</label>
+			</td>
+			<td>
+				<input type="password" name="newPassword" id="newPassword" value="" class="textField" />
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label for="passwordConfirm" class="{if 'confirmPassword'|in_array:$errorFields}errorLabel{else}normalLabel{/if}">
+					confirm password
+				</label>
+			</td>
+			<td>
+				<input type="password" name="confirmPassword" id="confirmPassword" value="" class="textField" />
+			</td>
+		</tr>
+		<tr><td colspan="2">&nbsp;</td></tr>
+{if $external && !$hasPassword}
+		<tr class="messages"><td colspan="2">creating a password lets you sign in with your username and password</td></tr>
+		<tr><td colspan="2">&nbsp;</td></tr>
+{/if}
+		<tr>
+			<td colspan="2">
+				<input type="submit" name="submit" value="update" class="button" />
+			</td>
+		</tr>
+	</table>
+	<input type="hidden" name="action" value="updateAccount" />
+</form>
+
+{include file="site/footer.htm"}

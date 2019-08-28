@@ -1,0 +1,27 @@
+{include file="site/header.htm"}
+
+<table class="diff">
+	<tr>
+		<td>
+			<a href="/post/{$post.gameTitle}/{$post.postTitle}">post</a>
+			&nbsp;
+			<a href="/user/edit/game/{$post.gameTitle}/post/{$post.postTitle}">edit</a>
+			&nbsp;
+			<a href="/user/edit/action/revisions/postID/{$post.postID}">revision history</a>
+		</td>
+	</tr>
+	<tr><td>&nbsp;</td></tr>
+	<tr>
+		<td>
+			<div class="diffContainer">
+{if !empty($diff)}
+				{$diff|nl2br}
+{else}
+				looks like there were no changes
+{/if}
+			</div>
+		</td>
+	</tr>
+</table>
+
+{include file="site/footer.htm"}

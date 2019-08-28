@@ -1,0 +1,10 @@
+{include file="admin/adminHeader.htm"}
+
+<form action="{$smarty.server.PHP_SELF}/action/disable" method="post">
+	<p>Enter post IDs to disable (comma separated, use - for range)</p>
+	<textarea name="posts" cols="100%" rows="5"></textarea>
+	<br /><br />
+	<input type="submit" name="submit" value="Disable Posts" class="button" />
+</form>
+
+{include file="admin/adminFooter.htm"}

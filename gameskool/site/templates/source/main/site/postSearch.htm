@@ -1,0 +1,48 @@
+{include file="site/header.htm"}
+{include file="site/sidebar.htm"}
+
+<div class="posts">
+{if $postsFound > 0}
+	<div class="found">{$postsFound} post{if $postsFound > 1}s{/if} found</div>
+	<div class="postFilters">
+		<ul>
+			<li><a href="{if !$searchQuery.search && $pageURL == '/home'}/{else}{$pageURL}{$searchQuery.search}{/if}"{if !$searchQuery.type} class="currentFilter"{/if}>all</a></li>
+			<li><a href="{$pageURL}/type/video{$searchQuery.search}"{if $searchQuery.type == '/type/video'} class="currentFilter"{/if}>video</a></li>
+			<li><a href="{$pageURL}/type/link{$searchQuery.search}"{$searchQuery.search}{if $searchQuery.type == '/type/link'} class="currentFilter"{/if}>link</a></li>
+			<li><a href="{$pageURL}/type/blog{$searchQuery.search}"{$searchQuery.search}{if $searchQuery.type == '/type/blog'} class="currentFilter"{/if}>blog</a></li>
+			<li><a href="{$pageURL}/type/wiki{$searchQuery.search}"{$searchQuery.search}{if $searchQuery.type == '/type/wiki'} class="currentFilter"{/if}>wiki</a></li>
+		</ul>
+	</div>
+{foreach from=$posts item=post}
+	<div class="post">
+		{include file="site/postSearch.`$post.type`.htm"}
+	</div>
+{/foreach}
+{if $from > 0 || $next < $postsFound}
+	<div class="page">
+{if $from > 0}
+		<a href="{$pageURL}/from/{$prev}{$searchQuery.type}{$searchQuery.search}">prev</a>&nbsp;
+{/if}
+{if $next < $postsFound}
+		<a href="{$pageURL}/from/{$next}{$searchQuery.type}{$searchQuery.search}">next</a>
+{/if}
+	</div>
+{/if}
+{else}
+	<div class="postFilters">
+		<ul>
+			<li><a href="{if !$searchQuery.search && $pageURL == '/home'}/{else}{$pageURL}{$searchQuery.search}{/if}"{if !$searchQuery.type} class="currentFilter"{/if}>all</a></li>
+			<li><a href="{$pageURL}/type/video"{$searchQuery.search}{if $searchQuery.type == '/type/video'} class="currentFilter"{/if}>video</a></li>
+			<li><a href="{$pageURL}/type/link{$searchQuery.search}"{$searchQuery.search}{if $searchQuery.type == '/type/link'} class="currentFilter"{/if}>link</a></li>
+			<li><a href="{$pageURL}/type/blog{$searchQuery.search}"{$searchQuery.search}{if $searchQuery.type == '/type/blog'} class="currentFilter"{/if}>blog</a></li>
+			<li><a href="{$pageURL}/type/wiki{$searchQuery.search}"{$searchQuery.search}{if $searchQuery.type == '/type/wiki'} class="currentFilter"{/if}>wiki</a></li>
+		</ul>
+	</div>
+	<br />
+	there were no posts found
+	<br />
+	but there would be, if you <a href="/submit">submit one</a>
+{/if}
+</div>
+
+{include file="site/footer.htm"}

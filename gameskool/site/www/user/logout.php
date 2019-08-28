@@ -1,0 +1,5 @@
+<?
+
+	userCore::logout();
+
+?>

@@ -1,0 +1,16 @@
+{include file="admin/adminHeader.htm"}
+{$userType}
+<form action="{$smarty.server.PHP_SELF}/action/importYoutube" method="post">
+	<p>Submit With (User ID):</p>
+	<input type="text" name="posterID" value="{$posterID}" style="width: 100px" />
+	<p>User Type:</p>
+	{html_options name=poster options=$userTypes selected=$poster}
+	<p>Game Title:</p>
+	<input type="text" name="gameTitle" id="gameTitle" value="{$gameTitle}" />
+	<p>Enter video IDs separated by commas:</p>
+	<textarea name="ids" cols="100%" rows="5">{$ids}</textarea>
+	<br /><br />
+	<input type="submit" name="submit" value="Import Videos" class="button" />
+</form>
+
+{include file="admin/adminFooter.htm"}

@@ -1,0 +1,179 @@
+{include file="site/header.htm"}
+
+<div class="repairOrderComplete">
+	<p>Thanks for your repair order, {$repairOrder.first} {$repairOrder.last}!</p>
+	<p>Please print this page or save this page for your records. You will also receive a receipt via e-mail.</p>
+	<p>Our friendly repair technician will contact you soon via your preferred method of communication.</p>
+	<p>
+		If you are sending the system or dropping it off at our affiliates, you can visit or send them to:
+		<div class="repairAddress">
+			XCubicle<br />
+			Essex Street<br />
+			New York, NY 10002
+		</div>
+	</p>
+	<p>
+		<table>
+			<tr><td colspan="2"><h1 class="gp">Repair Summary</h1></td></tr>
+			<tr><td colspan="2">&nbsp;</td></tr>
+			<tr>
+				<td>
+					<label class="normalLabel">Repair Number:</label>
+				</td>
+				<td>
+					{$repairOrder.repairOrderID}
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label class="normalLabel">Request Date:</label>
+				</td>
+				<td>
+					{$repairOrder.orderDate|date_format:"%m/%d/%Y"}
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label class="normalLabel">Console:</label>
+				</td>
+				<td>
+					{$system}
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label class="normalLabel">Serial Number:</label>
+				</td>
+				<td>
+					{$repairOrder.serial}
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label class="normalLabel">Problem:</label>
+				</td>
+				<td>
+					{$systemProblem.name}
+				</td>
+			</tr>
+{if $repairOrder.description}
+			<tr>
+				<td>
+					<label class="normalLabel">Description:</label>
+				</td>
+				<td>
+					{$repairOrder.description}
+				</td>
+			</tr>
+{/if}
+			<tr>
+				<td>
+					<label class="normalLabel">Estimated Cost:</label>
+				</td>
+				<td>
+					${$systemProblem.cost}
+				</td>
+			</tr>
+			<tr><td colspan="2">&nbsp;</td></tr>
+			<tr>
+				<td>
+					<label class="normalLabel">Name:</label>
+				</td>
+				<td>
+					{$repairOrder.first} {$repairOrder.last}
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label class="normalLabel">Email:</label>
+				</td>
+				<td>
+					{$repairOrder.email}
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label class="normalLabel">Phone:</label>
+				</td>
+				<td>
+					{$repairOrder.phone}
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label class="normalLabel">Address 1:</label>
+				</td>
+				<td>
+					{$repairOrder.address1}
+				</td>
+			</tr>
+{if $repairOrder.address2}
+			<tr>
+				<td>
+					<label class="normalLabel">Address 2:</label>
+				</td>
+				<td>
+					{$repairOrder.address2}
+				</td>
+			</tr>
+{/if}
+			<tr>
+				<td>
+					<label class="normalLabel">City:</label>
+				</td>
+				<td>
+					{$repairOrder.city}
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label class="normalLabel">State:</label>
+				</td>
+				<td>
+					{$repairOrder.state}
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label class="normalLabel">Postal:</label>
+				</td>
+				<td>
+					{$repairOrder.postal}
+				</td>
+			</tr>
+			<tr><td colspan="2">&nbsp;</td></tr>
+			<tr>
+				<td>
+					<label class="normalLabel">Contact you first?</label>
+				</td>
+				<td>
+					{if $repairOrder.contact == 'none'}no{else}yes, by {$repairOrder.contact}{/if}
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label class="normalLabel">Method of dropoff:</label>
+				</td>
+				<td>
+					{$repairOrder.receiveMethod}
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label class="normalLabel">Method of return:</label>
+				</td>
+				<td>
+					{$repairOrder.returnMethod}
+				</td>
+			</tr>
+		</table>
+	</p>
+	<p>&nbsp</p>
+	<p>
+		You can expect a call from one of our friendly repair technicians within 24 hrs. If you have questions, please contact us at <a href="mailto:>repairs@gameprotege.com">repairs@gameprotege.com</a>.
+	</p>
+	<p>Thanks again for repairing with us.</p>
+	<p><h2 class="gp">GameProtege.com</h2></p>
+</div>
+
+{include file="site/footer.htm"}

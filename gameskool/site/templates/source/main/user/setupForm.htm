@@ -1,0 +1,41 @@
+{include file="site/header.htm"}
+
+<form action="{$smarty.server.PHP_SELF}" method="post" class="accountManagement">
+	<table>
+		<tr>
+			<td>
+				<label for="userName" class="{if 'userName'|in_array:$errorFields}errorLabel{else}normalLabel{/if}">
+					username
+				</label>
+			</td>
+			<td>
+				<input type="text" name="userName" id="userName" value="{$user.userName}" class="textField" />
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label for="email" class="{if 'email'|in_array:$errorFields}errorLabel{else}normalLabel{/if}">
+					email (optional)
+				</label>
+			</td>
+			<td>
+				<input type="text" name="email" id="email" value="{$user.email}" class="textField" />
+			</td>
+		</tr>
+		<tr><td colspan="2">&nbsp;</td></tr>
+		<tr class="terms">
+			<td colspan="2">
+				<input type="checkbox" name="userAgreement" id="userAgreement" /> i have read and accept the <a href="/article/userterms" style="text-decoration: underline" target="_blank">user conditions</a>
+			</td>
+		</tr>
+		<tr><td colspan="2">&nbsp;</td></tr>
+		<tr>
+			<td colspan="2">
+				<input type="submit" name="submit" value="submit" class="button" />
+			</td>
+		</tr>
+	</table>
+	<input type="hidden" name="action" value="setup" />
+</form>
+
+{include file="site/footer.htm"}

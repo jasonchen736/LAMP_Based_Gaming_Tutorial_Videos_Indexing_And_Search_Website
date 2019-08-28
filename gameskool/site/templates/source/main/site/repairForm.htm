@@ -1,0 +1,177 @@
+{include file="site/header.htm"}
+
+<form action="/service/repairs" method="post" class="submitRepair">
+	<table>
+		<tr><td colspan="2"><h1 class="gp">First, the problem</h1></td></tr>
+		<tr><td colspan="2">&nbsp;</td></tr>
+		<tr>
+			<td>
+				<label class="{if 'console'|in_array:$errorFields}errorLabel{else}normalLabel{/if}">Console:</label>
+			</td>
+			<td>
+				{html_options name=console options=$consoles selected=$repairOrder.console}
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label class="{if 'systemProblemID'|in_array:$errorFields}errorLabel{else}normalLabel{/if}">Problem:</label>
+			</td>
+			<td>
+				<select name="systemProblemID" id="systemProblemID">
+{foreach from=$systemProblems key=systemID item=problemSet}
+{foreach from=$problemSet key=problemID item=problem}
+					<option class="systemProblemOption system_{$systemID}" value="{$problemID}" id="{if $problem.name == 'Other'}systemProblemOther{else}systemProblem{$problemID}{/if}"{if $repairOrder.systemProblemID == $problemID} selected="selected"{/if}>{$problem.name}</option>
+{/foreach}
+{/foreach}
+				</select>
+				<span id="estimatedCost">
+					Estimated cost: $
+					<ul id="systemProblemCosts">
+{foreach from=$systemProblems key=systemID item=problemSet}
+{foreach from=$problemSet key=problemID item=problem}
+						<li class="systemProblemCost" id="cost_systemProblem{if $problem.name == 'Other'}Other{else}{$problemID}{/if}"{if $repairOrder.systemProblemID != $problemID && !($repairOrder.systemProblemID == '' && $problem.name == 'Other')} style="display: none"{/if}>{$problem.cost}</li>
+{/foreach}
+{/foreach}
+					</ul>
+				</span>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label class="{if 'description'|in_array:$errorFields}errorLabel{else}normalLabel{/if}">Description:</label>
+			</td>
+			<td>
+				<textarea name="description" class="description">{$repairOrder.description}</textarea>
+			</td>
+		</tr>
+		<tr><td colspan="2">&nbsp;</td></tr>
+		<tr><td colspan="2"><h1 class="gp">Next, some contact info</h1></td></tr>
+		<tr><td colspan="2">&nbsp;</td></tr>
+		<tr>
+			<td>
+				<label class="{if 'first'|in_array:$errorFields}errorLabel{else}normalLabel{/if}">First Name:</label>
+			</td>
+			<td>
+				<input type="text" name="first" value="{$repairOrder.first}" class="textField" />
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label class="{if 'last'|in_array:$errorFields}errorLabel{else}normalLabel{/if}">Last Name:</label>
+			</td>
+			<td>
+				<input type="text" name="last" value="{$repairOrder.last}" class="textField" />
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label class="{if 'email'|in_array:$errorFields}errorLabel{else}normalLabel{/if}">Email:</label>
+			</td>
+			<td>
+				<input type="text" name="email" value="{$repairOrder.email}" class="textField" />
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label class="{if 'phone'|in_array:$errorFields}errorLabel{else}normalLabel{/if}">Phone:</label>
+			</td>
+			<td>
+				<input type="text" name="phone" value="{$repairOrder.phone}" class="textField" />
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label class="{if 'address1'|in_array:$errorFields}errorLabel{else}normalLabel{/if}">Address 1:</label>
+			</td>
+			<td>
+				<input type="text" name="address1" value="{$repairOrder.address1}" class="textField" />
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label class="{if 'address2'|in_array:$errorFields}errorLabel{else}normalLabel{/if}">Address 2:</label>
+			</td>
+			<td>
+				<input type="text" name="address2" value="{$repairOrder.address2}" class="textField" />
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label class="{if 'city'|in_array:$errorFields}errorLabel{else}normalLabel{/if}">City:</label>
+			</td>
+			<td>
+				<input type="text" name="city" value="{$repairOrder.city}" class="textField" />
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label class="{if 'state'|in_array:$errorFields}errorLabel{else}normalLabel{/if}">State:</label>
+			</td>
+			<td>
+				{html_options name=state options=$states selected=$repairOrder.state}
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label class="{if 'postal'|in_array:$errorFields}errorLabel{else}normalLabel{/if}">Postal:</label>
+			</td>
+			<td>
+				<input type="text" name="postal" value="{$repairOrder.postal}" class="textField" />
+			</td>
+		</tr>
+		<tr><td colspan="2">&nbsp;</td></tr>
+		<tr><td colspan="2"><h1 class="gp">Now, about getting this fixed</h1></td></tr>
+		<tr><td colspan="2">&nbsp;</td></tr>
+		<tr>
+			<td>
+				<label class="{if 'contact'|in_array:$errorFields}errorLabel{else}normalLabel{/if}">Would you like us to contact you<br />before you do anything?</label>
+			</td>
+			<td>
+				{html_options name=contact options=$contactOptions selected=$repairOrder.contact}
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label class="{if 'serial'|in_array:$errorFields}errorLabel{else}normalLabel{/if}">Serial Number of your system:</label>
+			</td>
+			<td>
+				<input type="text" name="serial" value="{$repairOrder.serial}" class="textField serial" />
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label class="{if 'receiveMethod'|in_array:$errorFields}errorLabel{else}normalLabel{/if}">How will you get this to us?</label>
+			</td>
+			<td>
+				{html_options name=receiveMethod options=$receiveMethods selected=$repairOrder.receiveMethod}
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label class="{if 'returnMethod'|in_array:$errorFields}errorLabel{else}normalLabel{/if}">How would you like it returned?</label>
+			</td>
+			<td>
+				{html_options name=returnMethod options=$returnMethods selected=$repairOrder.returnMethod}
+			</td>
+		</tr>
+		<tr><td colspan="2">&nbsp;</td></tr>
+		<tr class="captcha">
+			<td>
+				<label class="{if 'captcha'|in_array:$errorFields}errorLabel{else}normalLabel{/if}">are you robot?<br />enter the text in the image &raquo;</label>
+			</td>
+			<td>
+				<img src="/images/{$smarty.now}/captcha.jpg" />
+				<input type="text" name="captcha" id="captcha" value="" class="textField" />
+			</td>
+		</tr>
+		<tr><td colspan="2">&nbsp;</td></tr>
+		<tr>
+			<td colspan="2">
+				<input type="submit" name="submitRequest" value="submit repair request" class="button" />
+			</td>
+		</tr>
+	</table>
+	<input type="hidden" name="action" value="submit" />
+</form>
+
+{include file="site/footer.htm"}

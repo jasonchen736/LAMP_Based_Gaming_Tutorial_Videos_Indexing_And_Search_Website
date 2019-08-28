@@ -1,0 +1,48 @@
+<div class="postContent wiki">
+{if $havePostPageMessages}
+    <div class="messageContainer">
+{if count($postPageSuccesses) > 0}
+        <ul class="success">
+{section name=successes loop=$postPageSuccesses}
+            <li>{$postPageSuccesses[successes]}</li>
+{/section}
+        </ul>
+{/if}
+{if count($postPageMessages) > 0}
+        <ul class="general">
+{section name=messages loop=$postPageMessages}
+            <li>{$postPageMessages[messages]}</li>
+{/section}
+        </ul>
+{/if}
+{if count($postPageErrors) > 0}
+        <ul class="error">
+{section name=errors loop=$postPageErrors}
+            <li>{$postPageErrors[errors]}</li>
+{/section}
+        </ul>
+{/if}
+    </div>
+{/if}
+    <h3 class="title"><a href="/game/{$post.gameTitleURL}">{$post.gameTitle}</a> - {$post.postTitle}</h3>
+{if !empty($content)}
+    {$content}
+{else}
+    this here is a wiki with nothing on it
+    <br />
+    <a href="/user/edit/game/{$post.gameTitleURL}/post/{$post.postTitleURL}">why, that's unacceptable!</a>
+{/if}
+</div>
+<div class="postFrame wiki">
+    <div class="post">
+        <div class="options">
+            <div class="details">
+                submitted {$post.timeSubmitted} ago by <a href="/by/{if $post.poster != 'anonymous'}{$post.poster}/{$post.posterName}{else}anonymous/user{/if}">{$post.posterName}</a> for <a href="/game/{$post.gameTitleURL}">{$post.gameTitle}</a>
+                <br />
+                <a href="/comments/{$post.gameTitleURL}/{$post.postTitleURL}">{if $post.comments > 0}{$post.comments} {/if}comment{if $post.comments != 1}s{/if}</a>
+                .
+                <a href="/user/edit/game/{$post.gameTitleURL}/post/{$post.postTitleURL}">edit wiki</a>
+            </div>
+        </div>
+    </div>
+</div>

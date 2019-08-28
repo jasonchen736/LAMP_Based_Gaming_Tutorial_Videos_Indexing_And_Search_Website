@@ -1,0 +1,123 @@
+{include file="admin/adminHeader.htm"}
+
+{include file="admin/pagination.htm"}
+
+<form action="{$smarty.server.PHP_SELF}/_sortField/{$query.sortField}/_sortOrder/{$query.sortOrder}{if $query.querystring}/{$query.querystring}{/if}" method="post">
+	<input type="hidden" name="runSearch" value="true" />
+
+	<table class="recordsTable">
+
+		<tr class="recordsHeader">
+			<td>&nbsp;</td>
+			<td align="right"><a href="{$smarty.server.PHP_SELF}/_sortField/errorID/_sortOrder/{if $query.sortField == 'errorID'}{$query.revSortOrder}{else}ASC{/if}{if $query.querystring}/{$query.querystring}{/if}">Error ID</a></td>
+			<td><a href="{$smarty.server.PHP_SELF}/_sortField/class/_sortOrder/{if $query.sortField == 'class'}{$query.revSortOrder}{else}ASC{/if}{if $query.querystring}/{$query.querystring}{/if}">Class</a></td>
+			<td><a href="{$smarty.server.PHP_SELF}/_sortField/type/_sortOrder/{if $query.sortField == 'type'}{$query.revSortOrder}{else}ASC{/if}{if $query.querystring}/{$query.querystring}{/if}">Type</a></td>
+			<td><a href="{$smarty.server.PHP_SELF}/_sortField/message/_sortOrder/{if $query.sortField == 'message'}{$query.revSortOrder}{else}ASC{/if}{if $query.querystring}/{$query.querystring}{/if}">Message</a></td>
+			<td align="right"><a href="{$smarty.server.PHP_SELF}/_sortField/date/_sortOrder/{if $query.sortField == 'date'}{$query.revSortOrder}{else}ASC{/if}{if $query.querystring}/{$query.querystring}{/if}">Error Date</a></td>
+			<td align="right"><a href="{$smarty.server.PHP_SELF}/_sortField/count/_sortOrder/{if $query.sortField == 'count'}{$query.revSortOrder}{else}ASC{/if}{if $query.querystring}/{$query.querystring}{/if}">Error Count</a></td>
+			<td><a href="{$smarty.server.PHP_SELF}/_sortField/status/_sortOrder/{if $query.sortField == 'status'}{$query.revSortOrder}{else}ASC{/if}{if $query.querystring}/{$query.querystring}{/if}">Status</a></td>
+		</tr>
+
+		<tr class="recordSearchHeader">
+			<td>
+				<input class="button" type="reset" value="Reset" />
+				<br class="clear" />
+				<input class="button" type="submit" value="Search" />
+			</td>
+			<td class="idField"><input type="text" name="errorID" value="{$search.errorID.value}" /></td>
+			<td>
+				<input type="text" name="class" value="{$search.class.value}" />
+				<input type="hidden" name="class_operator" value="contains" />
+			</td>
+			<td>
+				<input type="text" name="type" value="{$search.type.value}" />
+				<input type="hidden" name="type_operator" value="contains" />
+			</td>
+			<td>
+				<input type="text" name="message" value="{$search.message.value}" />
+				<input type="hidden" name="message_operator" value="contains" />
+			</td>
+			<td>
+				<table class="searchSection dateSelect">
+					<tr>
+						<td>From:&nbsp;</td>
+						<td>
+							<input type="text" name="dateFrom" id="dateFrom" value="{$search.dateFrom.value|date_format:"%m/%d/%Y"}" />
+							<img src="/images/{$_SYSTEM->get('SOURCEDIR')}/admin/calendar.png" id="dateFromButton" />
+						</td>
+					</tr>
+					<tr>
+						<td>To:</td>
+						<td>
+							<input type="text" name="dateTo" id="dateTo" value="{$search.dateTo.value|date_format:"%m/%d/%Y"}" />
+							<img src="/images/{$_SYSTEM->get('SOURCEDIR')}/admin/calendar.png" id="dateToButton" />
+						</td>
+					</tr>
+				</table>
+{literal}
+				<script type="text/javascript">
+					Calendar.setup(
+						{
+							inputField : "dateFrom",
+							ifFormat : "%m/%d/%Y",
+							button : "dateFromButton"
+						}
+					);
+					Calendar.setup(
+						{
+							inputField : "dateTo",
+							ifFormat : "%m/%d/%Y",
+							button : "dateToButton"
+						}
+					);
+				</script>
+{/literal}
+			</td>
+			<td>
+				<table class="searchSection smallRange">
+					<tr>
+						<td>From:&nbsp;</td>
+						<td><input type="text" name="countFrom" value="{$search.countFrom.value}" /></td>
+					</tr>
+					<tr>
+						<td>To:</td>
+						<td><input type="text" name="countTo" value="{$search.countTo.value}" /></td>
+					</tr>
+				</table>
+			</td>
+			<td>
+				{html_options name=status options=$search.status.options selected=$search.status.value}
+			</td>
+		</tr>
+
+{section name=record loop=$records}
+		<tr class="{cycle values="recordsRowAlpha,recordsRowBeta"}">
+			<td align="center">
+				<a href="{$smarty.server.PHP_SELF}/errorID/{$records[record].errorID}/action/editError" class="viewContent iconOnly" title="View Error">&nbsp;</a>
+			</td>
+			<td align="right">{$records[record].errorID}</td>
+			<td>{$records[record].class}</td>
+			<td>{$records[record].type}</td>
+			<td>{$records[record].message}</td>
+			<td align="right">{$records[record].date|date_format:"%m/%d/%Y"}</td>
+			<td align="right">{$records[record].count}</td>
+			<td>{$records[record].status}</td>
+		</tr>
+{/section}
+
+		<tr class="recordsFooter">
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+		</tr>
+
+	</table>
+
+</form>
+
+{include file="admin/adminFooter.htm"}

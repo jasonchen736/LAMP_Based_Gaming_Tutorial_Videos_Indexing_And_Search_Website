@@ -1,0 +1,83 @@
+<Directory "[PATH TO WWW]">
+	# Directory directives
+	Options -Indexes
+	AllowOverride None
+	Order allow,deny
+	Allow from all
+
+	# Error documents
+	ErrorDocument 500 /error/status/code/500
+	ErrorDocument 404 /error/status/code/404
+	ErrorDocument 403 /error/status/code/403
+	ErrorDocument 401 /error/status/code/401
+
+	# Friendly URL rewrites
+	RewriteEngine On
+
+	# Remove www
+	RewriteCond %{HTTP_HOST} ^[WWW.SITEURL]$ [NC]
+	RewriteRule ^(.*)$ [SITEURL]/$1 [R=301,L]
+
+	RewriteRule ^favicon.ico$ /images/[SOURCE FOLDER]/site/favicon.ico [R=301,L]
+
+	RewriteCond %{REQUEST_URI} !\.(js|ico|gif|jpg|png|css|php)$
+	RewriteRule ^game/(.+)$ /game.php?_request=gameTitle/$1 [NE,NC,L]
+
+	RewriteCond %{REQUEST_URI} !\.(js|ico|gif|jpg|png|css|php)$
+	RewriteRule ^post/(.[^/]+)/(.[^/]+)(.*)$ /post.php?_request=gameTitle/$1/postTitle/$2$3 [NE,NC,L]
+
+	RewriteCond %{REQUEST_URI} !\.(js|ico|gif|jpg|png|css|php)$
+	RewriteRule ^titles/?(.*)$ /titles.php?_request=$1 [NE,NC,L]
+
+	RewriteCond %{REQUEST_URI} !\.(js|ico|gif|jpg|png|css|php)$
+	RewriteRule ^comments/by/(.+)$ /commentsBy.php?_request=$1 [NE,NC,L]
+
+	RewriteCond %{REQUEST_URI} !\.(js|ico|gif|jpg|png|css|php)$
+	RewriteRule ^comments/(.[^/]+)/(.[^/]+)(.*)$ /comments.php?_request=gameTitle/$1/postTitle/$2$3 [NE,NC,L]
+
+	RewriteCond %{REQUEST_URI} !\.(js|ico|gif|jpg|png|css|php)$
+	RewriteRule ^by/(.+)$ /by.php?_request=$1 [NE,NC,L]
+
+	RewriteCond %{REQUEST_URI} !\.(js|ico|gif|jpg|png|css|php)$
+	RewriteRule ^submit(/.*)?$ /submit.php?_request=type$1 [NE,NC,L]
+
+	RewriteRule ^images/[0-9]+/captcha.jpg$ /images/captcha.php [NE,NC,L]
+	RewriteRule ^images/[0-9]+/(.+)$ /images/$1 [NE,NC,L]
+
+	RewriteRule ^js/tiny_mce/themes/advanced/(.+)\.htm$ js/tiny_mce/themes/advanced/$1.htm [NE,NC,L]
+
+	RewriteCond %{REQUEST_URI} !\.(js|ico|gif|jpg|png|css|php)$
+	RewriteRule ^home/(.+)$ /index.php?_request=$1 [NE,NC,L]
+
+	RewriteCond %{REQUEST_URI} !\.(js|ico|gif|jpg|png|css|php)$
+	RewriteRule ^login(.*)$ /user/login.php?_request=$1 [NE,NC,L]
+
+	RewriteCond %{REQUEST_URI} !\.(js|ico|gif|jpg|png|css|php)$
+	RewriteRule ^article/(.+)$ /content/index.php?_request=name/$1 [NE,NC,L]
+
+	RewriteCond %{REQUEST_URI} !\.(js|ico|gif|jpg|png|css|php)$
+	RewriteRule ^([^/?]+)/([^/?]+)/?$ /$1/$2.php [NE,NC,L]
+
+	RewriteCond %{REQUEST_URI} !\.(js|ico|gif|jpg|png|css|php)$
+	RewriteRule ^([^/?]+)/([^/?]+)/(.+)$ /$1/$2.php?_request=$3 [NE,NC,L]
+
+	# Database connection
+	php_value mysql.default_host [DB HOST]
+	php_value mysql.default_user [DB USER]
+	php_value mysql.default_password [DB PASSWORD]
+
+	# Error handling
+	php_value display_errors Off
+	php_value log_errors On
+	php_value log_errors_max_len 1024
+	php_value error_log "[ERROR LOG FILE]"
+
+	# Globals settings
+	php_value include_path "[PATH TO LIBRARY]"
+	php_value auto_prepend_file global.php
+	php_value auto_append_file autoAppend.php
+
+	# Requisite settings
+	php_flag magic_quotes_gpc off
+	php_value allow_call_time_pass_reference true
+</Directory>

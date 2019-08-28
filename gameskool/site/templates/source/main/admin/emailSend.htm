@@ -1,0 +1,41 @@
+{include file="admin/adminHeader.htm"}
+
+<form action="{$smarty.server.PHP_SELF}" method="post">
+	<table>
+		<tr>
+			<td><span class="normalLabel">Email ID:</span></td>
+			<td>{$email.emailID}</td>
+		</tr>
+		<tr>
+			<td><span class="normalLabel">Email Name:</span></td>
+			<td>{$email.name}</td>
+		</tr>
+		<tr><td colspan="2">&nbsp;</td></tr>
+		<tr>
+			<td><span class="{if 'email'|in_array:$errorFields}errorLabel{else}normalLabel{/if}">Send To:</span>&nbsp;</td>
+			<td><input type="text" name="email" value="" /></td>
+		</tr>
+{if !empty($emailTags)}
+		<tr><td colspan="2">&nbsp;</td></tr>
+		<tr>
+			<td colspan="2">
+					<span class="normalLabel">Email Tags:</span>
+					<table>
+{foreach from=$emailTags item=tag}
+						<tr>
+							<td><span class="normalLabel">{$tag}:</span>&nbsp;</td>
+							<td><input type="text" name="#{$tag|regex_replace:"/\./":"#"}" value="" style="width: 400px" /></td>
+						</tr>
+{/foreach}
+					</table>
+			</td>
+		</tr>
+{/if}
+		<tr><td colspan="2">&nbsp;</td></tr>
+		<tr><td colspan="2"><input class="button" type="submit" value="Send Email" /></td></tr>
+	</table>
+	<input type="hidden" name="emailID" value="{$email.emailID}" />
+	<input type="hidden" name="action" value="send" />
+</form>
+
+{include file="admin/adminFooter.htm"}

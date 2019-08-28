@@ -1,0 +1,49 @@
+{include file="site/header.htm"}
+
+<div class="commentsBy">
+{if !empty($comments)}
+{foreach from=$comments item=comment}
+	<div class="comment">
+		<div class="vote">
+			<div class="voteScore">
+				{$comment.totalVotes}
+			</div>
+			<div class="voteOptions">
+				<a class="voteUp" href="{if $loggedin}/process/commentVote/post/{$comment.postID}/comment/{$comment.postCommentID}/vote/up{getSearch}{else}/user/register/to/vote{/if}">
+					<img src="/images/main/site/{if $commentVotes[$comment.postCommentKey] == 1}upVoteDark.gif{else}upBlankDark.gif{/if}"/>
+				</a>
+				<a class="voteDown" href="{if $loggedin}/process/commentVote/post/{$comment.postID}/comment/{$comment.postCommentID}/vote/down{getSearch}{else}/user/register/to/vote{/if}">
+					<img src="/images/main/site/{if $commentVotes[$comment.postCommentKey] == -1}downVoteDark.gif{else}downBlankDark.gif{/if}"/>
+				</a>
+			</div>
+		</div>
+		<div class="commentWrap">
+			<h3 class="title"><a href="/{if $comment.postType != 'link'}post{else}comments{/if}/{$comment.gameTitleURL}/{$comment.postTitleURL}">{$comment.gameTitle} - {$comment.postTitle}</a></h3>
+			<a href="/comments/by/{if $comment.poster != 'anonymous'}{$comment.poster}/{$comment.posterName}{else}anonymous/user{/if}">{$comment.posterName}</a> {$comment.timePosted} ago
+			<div class="commentBody">{$comment.comment}</div>
+			<a href="/comments/{$comment.gameTitleURL}/{$comment.postTitleURL}/comment/{$comment.postCommentID}" rel="nofollow">permalink</a>&nbsp;
+{if $comment.parentCommentID > 0}
+			<a href="/comments/{$comment.gameTitleURL}/{$comment.postTitleURL}/comment/{$comment.parentCommentID}" rel="nofollow">parent</a>&nbsp;
+{/if}
+{if $comment.poster == $topUser.userType && $comment.posterID == $topUser.userID}
+			<a href="/comments/{$comment.gameTitleURL}/{$comment.postTitleURL}/comment/{$comment.postCommentID}/edit/{$comment.postCommentID}" rel="nofollow">edit</a>
+{/if}
+		</div>
+	</div>
+{/foreach}
+{if $prev > 0 || $next < $totalComments}
+	<div class="page">
+{if $prev > 0}
+		<a href="/comments/by/{$userType}/{$userName}/from/{$prev}">prev</a>&nbsp;
+{/if}
+{if $next < $totalComments}
+		<a href="/comments/by/{$userType}/{$userName}/from/{$next}">next</a>
+{/if}
+	</div>
+{/if}
+{else}
+	there are no comments here
+{/if}
+</div>
+
+{include file="site/footer.htm"}

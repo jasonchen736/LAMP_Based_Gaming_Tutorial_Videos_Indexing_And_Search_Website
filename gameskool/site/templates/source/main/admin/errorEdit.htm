@@ -1,0 +1,95 @@
+{include file="admin/adminHeader.htm"}
+<form action="{$smarty.server.PHP_SELF}" method="post">
+	<table id="editTable">
+		<tr>
+			<td id="editMenuCell">
+				<ul id="editMenu">
+					<li class="head">&nbsp;</li>
+					<li class="editMenuOption{if !$propertyMenuItem || $propertyMenuItem == 'error_main'} selected{/if}" id="error_main">Error Details</li>
+					<li class="editMenuOption{if $propertyMenuItem == 'error_settings'} selected{/if}" id="error_settings">Error Settings</li>
+					<li class="end">&nbsp;</li>
+				</ul>
+				<div id="editActionContainer">
+					<input type="hidden" name="action" value="updateError" />
+					<input type="hidden" name="errorID" value="{$error.errorID}" />
+					<input class="button" type="submit" name="submit" value="Update" />
+				</div>
+			</td>
+			<td id="editPropertyCell">
+				<div id="error_mainContainer" class="propertyContainer{if $propertyMenuItem && $propertyMenuItem != 'error_main'} hidden{/if}">
+					<table>
+						<tr>
+							<td><span class="normalLabel">Error ID:</span></td>
+							<td>{$error.errorID}</td>
+						</tr>
+						<tr>
+							<td><span class="normalLabel">Class:</span></td>
+							<td>{$error.class}</td>
+						</tr>
+						<tr>
+							<td><span class="normalLabel">Code:</span></td>
+							<td>{$error.code}</td>
+						</tr>
+						<tr>
+							<td><span class="normalLabel">Type:</span></td>
+							<td>{$error.type}</td>
+						</tr>
+						<tr>
+							<td><span class="normalLabel">File:</span></td>
+							<td>{$error.file}</td>
+						</tr>
+						<tr>
+							<td><span class="normalLabel">Line:</span></td>
+							<td>{$error.line}</td>
+						</tr>
+						<tr>
+							<td><span class="normalLabel">Function:</span></td>
+							<td>{$error.function}</td>
+						</tr>
+						<tr>
+							<td><span class="normalLabel">Message:</span></td>
+							<td>{$error.message}</td>
+						</tr>
+						<tr>
+							<td><span class="normalLabel">Date:</span></td>
+							<td>{$error.date|date_format:"%m/%d/%Y"}</td>
+						</tr>
+						<tr>
+							<td><span class="normalLabel">Last Modified:</span></td>
+							<td>{$error.lastModified|date_format:"%m/%d/%Y %r"}</td>
+						</tr>
+						<tr>
+							<td><span class="normalLabel">Count:</span></td>
+							<td>{$error.count}</td>
+						</tr>
+						<tr>
+							<td><span class="normalLabel">Trace:</span></td>
+							<td><pre>{$error.trace}</pre></td>
+						</tr>
+					</table>
+				</div>
+				<div id="error_settingsContainer" class="propertyContainer{if !$propertyMenuItem || $propertyMenuItem != 'error_settings'} hidden{/if}">
+					<table>
+						<tr>
+							<td>
+								<span class="{if 'status'|in_array:$errorFields}errorLabel{else}normalLabel{/if}">Status:</span>
+								<br />
+								{html_options name=status options=$statusOptions selected=$error.status}
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<span class="{if 'comments'|in_array:$errorFields}errorLabel{else}normalLabel{/if}">Comments:</span>
+								<br />
+								<textarea name="comments" cols="100%" rows="25">{$error.comments}</textarea>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</td>
+		</tr>
+	</table>
+	<input type="hidden" name="propertyMenuItem" id="propertyMenuItem" value="{$propertyMenuItem}" />
+</form>
+
+{include file="admin/adminFooter.htm"}

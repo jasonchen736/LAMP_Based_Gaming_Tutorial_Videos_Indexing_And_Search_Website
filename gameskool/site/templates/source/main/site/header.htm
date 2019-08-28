@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+	<title>{$_TITLE}</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+{foreach from=$_META item=_meta}
+{if $_meta}
+	{$_meta}
+{/if}
+{/foreach}
+	<link type="image/x-icon" href="/images/{$_SYSTEM->get('SOURCEDIR')}/site/favicon.ico" />
+	<link rel="stylesheet" type="text/css" href="/js/smoothmenu/ddsmoothmenu.css" />
+	<link rel="stylesheet" type="text/css" href="/js/smoothmenu/ddsmoothmenu-v.css" />
+{foreach from=$_STYLES item=_style}
+{if $_style}
+	<link rel="stylesheet" type="text/css" href="{$_style}" />
+{/if}
+{/foreach}
+	<script type="text/javascript" language="JavaScript" src="/js/jquery/jquery.min.js"></script>
+	<script type="text/javascript" language="JavaScript" src="/js/smoothmenu/ddsmoothmenu.js"></script>
+{foreach from=$_SCRIPTS item=_script}
+{if $_script}
+	<script type="text/javascript" language="JavaScript" src="{$_script}"></script>
+{/if}
+{/foreach}
+{foreach from=$_SITETAGS.header item=_sitetag}
+{if $_sitetag.siteTag}
+{$_sitetag.siteTag}
+{/if}
+{/foreach}
+</head>
+
+<body>
+	<div class="main">
+
+<div class="header">
+	<div class="contentWidth">
+		<a class="logo" href="/"><img src="/images/{$_SYSTEM->get('SOURCEDIR')}/site/logo.jpg" alt="{$_SYSTEM->get('SITENAME')}" /></a>
+		<div class="user{if $loggedin} loggedIn{/if}">
+			<div class="wrap">
+{if $loggedin}
+				<div class="panelBody">
+			                <ul class="info">
+			                    <li>{$user.userName}</li>
+			                </ul>
+			                <ul class="actions">
+			                    <li>{if $location == 'mygames'}manage my games{else}<a href="/user/mygames/action/manage">manage my games</a>{/if}</li>
+			                    <li>{if $location == 'accountmanagement'}account information{else}<a href="/user/accountmanagement">account information</a>{/if}</li>
+			                </ul>
+			                <ul class="actions">
+			                    <li>{if $location == 'submittedby'}submitted posts{else}<a href="/by/user/{$user.userName}">submitted posts</a>{/if}</li>
+			                    <li><a href="/user/logout">logout</a></li>
+			                </ul>
+				</div>
+{else}
+				<form method="post" action="/user/login">
+					<div class="formWrap">
+						<input type="text" class="field" name="login">
+						<input type="password" class="field" fh:formhistory="off" value="" name="pass">
+						<div class="submit">
+							<input type="hidden" value="login" name="action">
+							<input type="hidden" value="" name="search">
+							<input type="image" alt="login" src="/images/{$_SYSTEM->get('SOURCEDIR')}/site/loginBt.png">
+						</div>
+					</div>
+					<div class="links">
+						<a href="/user/register">Register</a> |
+						<a href="/user/forgotpassword">Recover Password</a>
+						<a href="/user/login" title="login with facebook, gmail, and more" id="extLogin">login with facebook, gmail, and more</a>
+					</div>
+				</form>
+{/if}
+			</div>
+		</div>
+		<div class="ddsmoothmenu" id="navigation">
+			<ul class="menubar" id="global-nav">
+				<li id="home"><a title="home" href="/">Home</a></li>
+				<li style="z-index: 100;" id="games">
+					<a class="">games<img style="border: 0pt none;" class="downarrowclass" src="/js/smoothmenu/down.gif"><img style="border: 0pt none;" class="downarrowclass" src="down.gif"></a>
+					<ul style="top: 36px; display: none; visibility: visible;" class="games" id="subGamesNav">
+						<div id="gamesHover"></div>
+						<div id="gamesAlphabet">
+							<label>Browse Alphabetically: </label>
+							<ol>
+								<li><a href="/titles/browse/a">A</a></li>
+								<li><a href="/titles/browse/b">B</a></li>
+								<li><a href="/titles/browse/c">C</a></li>
+								<li><a href="/titles/browse/d">D</a></li>
+								<li><a href="/titles/browse/e">E</a></li>
+								<li><a href="/titles/browse/f">F</a></li>
+								<li><a href="/titles/browse/g">G</a></li>
+								<li><a href="/titles/browse/h">H</a></li>
+								<li><a href="/titles/browse/i">I</a></li>
+								<li><a href="/titles/browse/j">J</a></li>
+								<li><a href="/titles/browse/k">K</a></li>
+								<li><a href="/titles/browse/l">L</a></li>
+								<li><a href="/titles/browse/m">M</a></li>
+								<li><a href="/titles/browse/n">N</a></li>
+								<li><a href="/titles/browse/o">O</a></li>
+								<li><a href="/titles/browse/p">P</a></li>
+								<li><a href="/titles/browse/q">Q</a></li>
+								<li><a href="/titles/browse/r">R</a></li>
+								<li><a href="/titles/browse/s">S</a></li>
+								<li><a href="/titles/browse/t">T</a></li>
+								<li><a href="/titles/browse/u">U</a></li>
+								<li><a href="/titles/browse/v">V</a></li>
+								<li><a href="/titles/browse/w">W</a></li>
+								<li><a href="/titles/browse/x">X</a></li>
+								<li><a href="/titles/browse/y">Y</a></li>
+								<li><a href="/titles/browse/z">Z</a></li>
+							</ol>
+						</div>
+{foreach from=$hotTitles item=hotTitle}
+						<li><a href="/game/{$hotTitle.gameTitleURL}" title="{$hotTitle.gameTitle}">{$hotTitle.gameTitle}</a></li>
+{/foreach}
+					</ul>
+				</li>
+				<li id="my_games"><a title="my games" href="/user/mygames">my games</a></li>
+				<li id="submit"><a title="submit post" href="/submit">submit post</a></li>
+			</ul>
+			<div class="search">
+				<form method="post" action="{if $searchQuery && $searchQuery.type}{if $searchURL == '/'}/home{else}{$searchURL}{/if}{$searchQuery.type}{else}{$searchURL}{/if}">
+					<input type="text" value="{if !empty($searchText)}{$searchText}{else}search game protege{/if}" class="searchField" name="search">
+					<input type="submit" id="go">
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+		<div class="content">
+			<div class="container">
+<!--[if lte IE 6]>
+				<div class="upgradeIE6">
+					<h3>internet service announcement</h3>
+					make the internet a better place, <a href="http://www.microsoft.com/windows/internet-explorer/default.aspx" target="_blank">upgrade from internet explorer 6</a>
+					<br />
+					<a href="http://www.stoplivinginthepast.com/why-upgrade/" target="_blank">why should i upgrade?</a>
+				</div>
+<![endif]-->
+{if $haveMessages}
+				<div class="messageContainer">
+{if count($successMessages) > 0}
+					<ul class="success">
+{section name=successes loop=$successMessages}
+						<li>{$successMessages[successes]}</li>
+{/section}
+					</ul>
+{/if}
+{if count($generalMessages) > 0}
+					<ul class="general">
+{section name=messages loop=$generalMessages}
+						<li>{$generalMessages[messages]}</li>
+{/section}
+					</ul>
+{/if}
+{if count($errorMessages) > 0}
+					<ul class="error">
+{section name=errors loop=$errorMessages}
+						<li>{$errorMessages[errors]}</li>
+{/section}
+					</ul>
+{/if}
+				</div>
+{/if}

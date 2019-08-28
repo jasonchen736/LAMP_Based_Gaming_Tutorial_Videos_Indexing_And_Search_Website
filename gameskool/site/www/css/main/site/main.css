@@ -1,0 +1,353 @@
+/* GLOBAL */
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, p, blockquote, th, td, iframe, a, img {margin:0; padding:0}
+body {padding: 0; margin: 0; background-color: #000000; color: #AAA; font-family: verdana,arial,helvetica,sans-serif; font-size: 12px; line-height: normal; min-width: 1000px; position: relative}
+a {color: #FEFF94; text-decoration: none}
+a.current {text-decoration: underline}
+a:hover {text-decoration: underline}
+img {border: 0}
+.clear {clear: both; width: 0px; height: 0px}
+.hide {display: none}
+.show {display: block}
+* html body {border-right: 1000px solid #000}
+* html div.main {display: inline-block; position: relative; margin-right: -1000px}
+
+/* THEME STYLES */
+.gp {color: #FEFF94}
+
+/* INPUT STYLES */
+input.button {background-color: #005780; border: 0; cursor: pointer; padding: 3px 8px; color: #FFF; font-weight: bold; font-size: 14px}
+input.button.red {background-color: #990000}
+input.textField {background: #FFF url('/images/main/site/inputBG.gif') repeat-x scroll left top; border: 0; height: 19px; padding: 3px 0 0 3px}
+
+/* LINK STYLES */
+a.button {background-color: #005780; color: #FFF; font-weight: bold; padding: 5px 10px}
+a.button:hover {text-decoration: none}
+
+/* LABELS */
+label.normalLabel {color: #FFF; font-size: 12px; font-weight: bold; padding-right: 5px; white-space: nowrap}
+label.errorLabel {color: #FFF; font-size: 12px; font-weight: bold; padding-right: 5px; white-space: nowrap; background-color: #990000}
+
+/* IE6 MESSAGE */
+div.upgradeIE6 {color: #FFF; margin-bottom: 20px}
+
+/* MESSAGES */
+div.messageContainer {margin: 0 0 15px 0; padding: 10px; background-color: #3F3F3F;}
+div.messageContainer ul {list-style: none}
+div.messageContainer ul.error {color: #FFF}
+div.messageContainer ul.success {color: #FFF}
+div.messageContainer ul.general {color: #FFF}
+
+/* HEADER */
+div.header {height: 142px; min-width: 960px; position: fixed; width: 100%; background-color: #000; z-index:1000; background: #000 url('/images/main/site/nav_bg.jpg') repeat-x scroll 0 bottom; top: 0; left: 0}
+div.header div.contentWidth {margin:0 auto; padding: 0 50px; position:relative; min-width: 960px; position:relative;}
+div.header a.logo {display: block; float: left; margin: 0 20px}
+div.header a.logo:hover {border: 0}
+* html div.header a.logo {margin: 0}
+
+/* SEARCH */
+div.header div.search {float:right;margin:6px 0; }
+div.header div.search input {background:#fff; border:1px solid #444; display:block; float:left; font-size:13px; height:18px; padding:2px 4px; width:262px;}
+div.header div.search #go {background:url('/images/main/site/search.png') no-repeat scroll -4px -4px transparent; border:medium none; display:block; float:left; height:25px; margin-left:5px; text-indent:-9999px; width:25px; font-size: 0; line-height: 0; cursor: pointer}
+* html div.header div.search input {margin-left: -13px; text-indent: 0; padding-left: 10px; width: 303px}
+*:first-child+html div.header div.search input {margin-left: -13px; text-indent: 0; padding-left: 10px; width: 303px}
+
+/* LOGIN */
+div.header div.user {float: right; width: 390px; margin-top: 20px; }
+div.header div.user a {color: #FEFF94; }
+.formWrap {background: #BBCF53; padding: 7px; width: 375px; background: url('/images/main/site/loginForm.png') no-repeat 0 0; height: 22px; display: block; }
+div.header div.user input.field {font-size: 12px; padding: 2px 4px; background:#fff; border: 1px solid #828384; height: 17px; display:block; float: left; margin-right:5px; width:143px;}
+div.header div.user div.links {margin-top:10px; color: #FEFF94; line-height:23px;}
+div.header div.user div.submit {float: left; }
+div.header div.user div.submit input {color: #FEFF94; font-size: 14px; font-weight: bold}
+#extLogin {background: url('/images/main/site/extLogin.png') no-repeat 0 0; width: 181px; height: 25px; display: inline-block; text-indent: -9999px; margin-left: 23px; outline: none; }
+
+/* LOGGED IN */
+div.header div.user.loggedIn {margin-top: 7px; background: url('/images/main/site/userBoxLeft.gif') no-repeat scroll 0 0 transparent; height: 90px; padding-left: 10px; width: auto}
+div.header div.user.loggedIn div.wrap {background: url('/images/main/site/userBoxRight.gif') no-repeat scroll right top transparent; padding-right: 10px}
+div.header div.user.loggedIn div.panelBody {background: url('/images/main/site/userBoxBody.gif') repeat-x scroll 0 0 transparent; height: 90px; padding: 10px 0 0 20px}
+
+/* USER MENU */
+div.header div.user ul {list-style: none}
+div.header div.user ul.info {display: block; padding-top: 10px; color: #FEFF94; font-weight: bold}
+div.header div.user ul.actions {display: block; float: left; margin: 5px 20px 0 0; color: #FFF}
+
+/* NAVIGATION BAR */
+#navigation {height: 36px; background: url('/images/main/site/nav_bg.jpg') repeat-x 0 0; width: 100%; float: left; display: block; }
+#navigation ul {list-style: none; float:left; }
+#navigation ul li {float: left; }
+#navigation ul.games li a {color: #FFF}
+#navigation div.searchLink {background-color: #005780; height: 23px; padding: 0 10px; position: absolute; right: 15px}
+
+/* NAVIGATION USING IMAGE ROLLOVERS -------------- */
+#global-nav li a {background:url('/images/main/site/nav_sprite.jpg') no-repeat 0 0; display:block;height:36px;text-indent:-9999px; outline: none;}
+li#home a {width:95px; background-position: 0 0;}
+li#home a:hover, li#home a.current {background-position: 0 -37px;}
+li#games a {width:117px;background-position: -95px 0;}
+li#games a:hover, li#games a.current {background-position: -95px -37px;}
+li#my_games a {width:128px;background-position: -210px 0;}
+li#my_games a:hover, li#my_games a.current {background-position: -210px -37px;}
+li#submit a {width:145px;background-position: -338px 0;}
+li#submit a:hover, li#submit a.current {background-position: -338px -37px;}
+
+#subGamesNav {background:url('/images/main/site/gamesSubNav.png') no-repeat scroll 0 -30px transparent; height:155px; left:7px !important; top:36px !important; width:751px !important;}
+#subGamesNav li {display: block; line-height: 16px; padding: 0 10px; width: 220px; margin-bottom: 5px; padding-left: 20px; overflow: hidden; white-space: nowrap;}
+li#games #subGamesNav li a {color: #FEFF94; font-size: 14px; text-decoration: none; background: none; text-indent: 0; width: auto; height: auto; padding:2px 5px 2px 15px; background: url('/images/main/site/arrow-sprite.png') no-repeat 0 5px; }
+li#games #subGamesNav li a:hover {color: #000; background-position: 0 -20px; }
+li#games #subGamesNav li:hover {background-color: #FEFF94;}
+#gamesHover {width:140px; height: 34px; display: block; position: absolute; top: -34px; left: 0px; background: url('/images/main/site/gamesSubNav.png') no-repeat 0 0;}
+
+#gamesHover {background:url('/images/main/site/nav_sprite.jpg') no-repeat scroll -95px -38px transparent; display:block; height:34px; left:-7px; position:absolute; top:-35px; width:117px; }
+#gamesAlphabet {background:url('/images/main/site/gamesSubNav.png') no-repeat scroll 0 bottom transparent; bottom:0; color:#000000; display:block; height:35px; left:0; position:absolute; width:751px; z-index:1000; }
+#gamesAlphabet li {font-weight:bold; line-height:23px; margin:0; padding:0; width:auto;}
+li#games #subGamesNav #gamesAlphabet li a {background: none; padding: 2px 5px; color: #000; }
+li#games #subGamesNav #gamesAlphabet li a:hover {background-color: #000; color: #aaa; }
+li#games #subGamesNav #gamesAlphabet li:hover {background: none; }
+#gamesAlphabet label {display:block; float:left; font-size:10px; font-weight:bold; line-height:42px; margin-left:10px; text-transform:uppercase;}
+#gamesAlphabet ol {display:block; float:left; height:28px; margin: 8px 0 0 10px; }
+
+* html #navigation div.searchLink {top: 114px}
+*:first-child+html div.titles div.searchLink {top: 114px}
+
+/* CONTENT */
+div.content {padding-top: 10px; background-color: #2B2B2B;}
+div.content div.container {margin-top: 120px; *margin-top: 30px; padding: 25px 15px 25px 15px; overflow: hidden}
+* html div.content {padding-top: 1px}
+* html div.content div.container {height: 100%; padding-top: 20px}
+*:first-child+html div.content div.container {padding-top: 132px}
+
+/* FOOTER */
+div.footer {margin:10px 0 0; padding:20px 0; background: #000;}
+div.footer a {color: #FFF}
+div.footer ul {list-style: none; margin: 0 0 0 25px; position: relative; width: 400px;}
+div.footer li {display: inline; }
+
+/* POST LISTINGS */
+div.posts  {margin-right:335px;}
+#sortNav {border-bottom: 2px solid #FEFF94; margin-bottom: 10px; font-size:14px; font-weight:bold;}
+div.posts div.found {color: #FEFF94; float: right; font-style:italic;}
+div.posts div.postFilters {overflow: hidden; margin-bottom: 10px;}
+div.posts div.postFilters ul {list-style: none; margin: 0; padding: 0}
+div.posts div.postFilters ul li {color:#FEFF94; display:block; float:left; margin-right:10px;}
+div.posts div.postFilters ul li.separator {margin-left: 10px}
+div.posts div.postFilters ul li a {padding:2px 8px; line-height:22px;}
+div.posts div.postFilters ul li a.currentFilter {color:#000000; background-color:#FEFF94; color: #000; text-decoration: none; }
+div.posts div.page {margin-top: 15px; margin-top:15px;}
+div.posts div.post {margin-bottom: 15px; overflow: hidden; background: #333333; padding: 10px; clear:left;}
+div.posts div.post:hover {background: #212121;}
+div.posts div.post div.vote {float:left; margin-right:20px; width:65px;}
+div.posts div.post div.vote div.voteScore {background: #666666; color:#000000; display:block; font-size:20px; margin-bottom:10px; overflow:hidden; padding:3px; text-align:center; }
+div.posts div.post div.vote div.voteOptions {margin: 4px auto 0 auto; width: 65px;}
+div.posts div.post div.vote div.voteOptions a {display: block; float: left}
+div.posts div.post div.vote div.voteOptions a.voteDown {margin-top: 1px}
+div.posts div.post div.thumb {border:3px solid #808080; float:left; margin-right:15px; overflow: hidden}
+div.posts div.post div.thumb a {display: block; width: 90px; height: 60px}
+div.posts div.post div.thumb a:hover {border: 0}
+div.posts div.post div.thumb a img {width: 90px; height: 60px}
+div.posts div.post div.details {/*margin-left: 90px*/}
+div.posts div.post div.details.link {overflow: hidden}
+div.posts div.post div.details.wiki {overflow: hidden}
+div.posts div.post div.details.blog {overflow: hidden}
+div.posts div.post div.details h3.title {font-size: 14px; font-weight: bold; }
+div.posts div.post div.details h3.title a:hover {background: #BBCF53; color: #000; text-decoration: none; }
+div.posts div.post div.details.link h3.title {background: url('/images/main/site/external-link-ltr-icon.png') no-repeat center right; padding-right: 20px; float:left;}
+
+* html div.posts div.div.posts {margin-top: -10px}
+* html div.posts div.post {height: 100%}
+* html div.posts div.postFilters {height: 100%}
+div.posts div.post div.options {margin-top: 5px; font-size: 10px; float:left;}
+div.posts div.post a.comments {margin-left: 30px; background: url('/images/main/site/commentIcon.png') no-repeat 0 0; padding: 2px 0 2px 20px;  }
+div.posts div.post a.edit {margin-left: 10px; background: url('/images/main/site/editIcon.png') no-repeat 0 0; padding: 2px 0 2px 20px;  }
+div.posts div.post .brief { }
+
+div.posts div.post div.details.link .brief {clear:both;}
+
+/* POST PAGE */
+div.postPanel div.spacer {height: 330px; float: left}
+div.postPanel h3.title {margin: 0 0 10px 0; color: #FEFF94; font-size: 14px}
+div.postPanel h3.title a {font-size: 14px}
+div.postPanel div.postFrame {left: 20px; padding: 0 0 5px 0; top: 162px; width: 520px}
+div.postPanel div.postFrame.video {position: fixed}
+div.postPanel div.postFrame div.post {padding: 0 20px 3px; margin: 0 auto;}
+div.postPanel div.postFrame div.post div.embed {width: 480px; height: 295px}
+div.postPanel div.postFrame div.post div.options {margin-top: 5px}
+div.postPanel div.postFrame div.post div.options div.vote {float: left; width: 100px; margin-right: 10px}
+div.postPanel div.postFrame div.post div.options div.vote div.voteScore {margin-top: 8px; height: 16px; font-weight: bold; color: #FFFFFF; background-color: #333333; text-align: center; width: 48px; float: left; overflow: hidden}
+div.postPanel div.postFrame div.post div.options div.vote div.voteOptions {margin: 6px auto 0 auto; width: 32px; overflow: hidden}
+div.postPanel div.postFrame div.post div.options div.vote div.voteOptions a {display: block; float: left}
+div.postPanel div.postFrame div.post div.options div.vote div.voteOptions a.voteDown {margin-top: 1px}
+div.postPanel div.postFrame div.post div.options div.details {width: 480px}
+div.postPanel b.base {width: 520px; left: 20px; top: 495px}
+div.postPanel div.postContent {margin: 10px 20px 20px 20px}
+div.postPanel div.postContent.video {margin-left: 520px}
+* html div.postPanel div.post {float: left; padding-left: 0}
+* html div.postPanel div.postContent {margin: 0; float: left}
+*:first-child+html div.postPanel div.postContent {padding-top: 10px}
+
+/* POST COMMENTS PAGE */
+div.postComments div.postInfo {margin-bottom: 10px; overflow: hidden}
+div.postComments div.postInfo div.vote {float: left; width: 48px; margin-right: 10px}
+div.postComments div.postInfo div.vote div.voteScore {margin-top: 8px; height: 16px; font-weight: bold; color: #FFFFFF; background-color: #333333; text-align: center; overflow: hidden}
+div.postComments div.postInfo div.vote div.voteOptions {margin: 4px auto 0 auto; width: 32px}
+div.postComments div.postInfo div.vote div.voteOptions a {display: block; float: left}
+div.postComments div.postInfo div.vote div.voteOptions a.voteDown {margin-top: 1px}
+div.postComments div.postInfo div.thumb {float: left; border: 1px solid #808080}
+div.postComments div.postInfo div.thumb a {display: block; width: 90px; height: 60px}
+div.postComments div.postInfo div.thumb a:hover {border: 0}
+div.postComments div.postInfo div.thumb a img {width: 90px; height: 60px}
+div.postComments div.postInfo div.details {margin-right: 20px;}
+div.postComments div.postInfo div.details.video {margin-left: 105px}
+div.postComments div.postInfo div.details.link {overflow: hidden}
+div.postComments div.postInfo div.details.wiki {overflow: hidden}
+div.postComments div.postInfo div.details.blog {overflow: hidden}
+div.postComments div.postInfo div.details h3.title {color: #FEFF94; font-size: 14px}
+div.postComments div.postInfo div.details h3.title a {font-size: 14px}
+div.postComments div.postInfo div.options {margin-top: 5px; font-size: 10px; float:left;}
+div.postComments div.comment {margin-top: 15px; margin-bottom: 20px; font-size: 11px; overflow: hidden}
+div.postComments div.comment div.vote {float: left; width: 48px; margin-right: 10px}
+div.postComments div.comment div.vote div.voteScore {margin-top: 1px; height: 16px; font-weight: bold; color: #FFFFFF; background-color: #333333; text-align: center; overflow: hidden}
+div.postComments div.comment div.vote div.voteOptions {margin: 4px auto 0 auto; width: 32px}
+div.postComments div.comment div.vote div.voteOptions a {display: block; float: left}
+div.postComments div.comment div.vote div.voteOptions a.voteDown {margin-top: 1px}
+div.postComments div.comment div.commentWrap {float: left}
+div.postComments div.comment div.commentBody {font-size: 12px; margin: 2px 0}
+div.postComments div.page {margin-top: 15px}
+div.postComments div.new, div.postComments div.edit {margin: 10px 0; width: 510px}
+div.postComments div.reply {margin: 10px 0 10px 20px; width: 510px}
+div.postComments div.new textarea, div.postComments div.reply textarea, div.postComments div.edit textarea {width: 500px; height: 100px; background: #FFF url('/images/main/site/inputBG.gif') repeat-x scroll left top; border: 0; padding: 5px; margin-bottom: 3px}
+div.postComments input.button {float: left; margin-right: 5px}
+div.postComments a.formattingHelp {float: right; font-size: 11px}
+div.postComments form {overflow: hidden}
+* html div.postComments div.postInfo {height: 100%}
+* html div.postComments div.comment {height: 100%}
+* html div.postComments form {height: 100%}
+
+/* USER COMMENTS PAGE */
+div.commentsBy h3.title {color: #FEFF94; font-size: 14px}
+div.commentsBy h3.title a {font-size: 14px}
+div.commentsBy div.comment {margin-bottom: 10px; font-size: 11px; overflow: hidden}
+div.commentsBy div.comment div.vote {float: left; width: 48px; margin-right: 10px}
+div.commentsBy div.comment div.vote div.voteScore {margin-top: 1px; height: 16px; font-weight: bold; color: #FFFFFF; background-color: #333333; text-align: center; overflow: hidden}
+div.commentsBy div.comment div.vote div.voteOptions {margin: 4px auto 0 auto; width: 32px}
+div.commentsBy div.comment div.vote div.voteOptions a {display: block; float: left}
+div.commentsBy div.comment div.vote div.voteOptions a.voteDown {margin-top: 1px}
+div.commentsBy div.comment div.commentWrap {float: left}
+div.commentsBy div.comment div.commentBody {font-size: 12px; margin: 2px 0}
+div.commentsBy div.page {margin-top: 15px}
+* html div.commentsBy div.comment {height: 100%}
+
+/* REGISTER */
+div.registrationContainer {float: left; color: #FFF; padding-left: 15px; border-left: 1px solid #FFF}
+div.registrationContainer div.message {margin-bottom: 10px}
+div.registrationContainer form.register tr.captcha td {vertical-align: bottom}
+div.registrationContainer form.register tr.captcha img {margin-top: 1px; display: block; width: 198px; height: 72px}
+div.registrationContainer form.register tr.captcha input.textField {margin-top: 2px}
+div.registrationContainer form.register input.textField {width: 195px}
+div.registrationContainer form.register tr.terms {color: #FFF}
+div.registrationContainer form.register tr.terms input {position: relative; top: 2px}
+
+/* OPEN ID SELECTOR */
+div.openIDContainer {float: left; color: #FFF; margin-right: 15px}
+div.openIDContainer div.message {margin-bottom: 10px}
+div.openIDContainer p.openIDNoScript {margin-top: 20px}
+div.openIDContainer div#openid_input_area {clear: both;	padding-top: 15px}
+div.openIDContainer div#openid_input_area p {margin-bottom: 5px}
+div.openIDContainer div#openid_input_area input.button {margin-left: 10px}
+div.openIDContainer div#openid_btns, div#openid_btns br {clear: both}
+div.openIDContainer div#openid_btns div {background-color: #FFF; border: 1px solid #DDD; margin: 3px; float: left}
+div.openIDContainer div#openid_btns div a {background-color: #FFF; background-repeat: no-repeat; background-attachment: scroll; background-position: center center; -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous; cursor: pointer}
+div.openIDContainer div#openid_btns div.openid_large_btn a {width: 100px; height: 60px; display: block}
+div.openIDContainer div#openid_btns div.openid_small_btn a {width: 24px; height: 24px; display: block}
+div.openIDContainer div#openid_btns div.openid_large_btn a:focus {outline: none}
+div.openIDContainer div#openid_btns div.openid_large_btn a:focus {-moz-outline-style: none}
+div.openIDContainer div#openid_btns div.facebook a {background-image: url('/images/main/site/openid/facebook.gif')}
+div.openIDContainer div#openid_btns div.google a {background-image: url('/images/main/site/openid/google.gif')}
+div.openIDContainer div#openid_btns div.yahoo a {background-image: url('/images/main/site/openid/yahoo.gif')}
+div.openIDContainer div#openid_btns div.aol a {background-image: url('/images/main/site/openid/aol.gif')}
+div.openIDContainer div#openid_btns div.openid a {background-image: url('/images/main/site/openid/openid.ico')}
+div.openIDContainer div#openid_btns div.myopenid a {background-image: url('/images/main/site/openid/myopenid.ico')}
+div.openIDContainer div#openid_btns div.livejournal a {background-image: url('/images/main/site/openid/livejournal.ico')}
+div.openIDContainer div#openid_btns div.flickr a {background-image: url('/images/main/site/openid/flickr.ico')}
+div.openIDContainer div#openid_btns div.technorati a {background-image: url('/images/main/site/openid/technorati.ico')}
+div.openIDContainer div#openid_btns div.wordpress a {background-image: url('/images/main/site/openid/wordpress.ico')}
+div.openIDContainer div#openid_btns div.blogger a {background-image: url('/images/main/site/openid/blogger.ico')}
+div.openIDContainer div#openid_btns div.verisign a {background-image: url('/images/main/site/openid/verisign.ico')}
+div.openIDContainer div#openid_btns div.vidoop a {background-image: url('/images/main/site/openid/vidoop.ico')}
+div.openIDContainer div#openid_btns div.claimid a {background-image: url('/images/main/site/openid/claimid.ico')}
+div.openIDContainer div#openid_btns div a img {display: none}
+div.openIDContainer div#openid_btns div.openid_selected {padding: 3px; background-color: #FFFCC9; float: left}
+div.openIDContainer div#openid_btns div.openid_selected a {border: 1px solid #DDD}
+
+/* SUBMIT POST */
+form.submitPost ul.postTypes {list-style: none; overflow: hidden}
+form.submitPost ul.postTypes li {float: left; margin-right: 15px}
+form.submitPost ul.postTypes li a {cursor: pointer}
+form.submitPost select {border: 0}
+form.submitPost input.textField {width: 527px}
+form.submitPost textarea.brief {width: 527px; height: 100px; background: #FFF url('/images/main/site/inputBG.gif') repeat-x scroll left top; border: 0; padding: 3px 0 0 3px}
+form.submitPost textarea.wysiwyg {width: 527px; height: 245px; background: #FFF url('/images/main/site/inputBG.gif') repeat-x scroll left top; border: 0; padding: 3px 0 0 3px}
+form.submitPost tr.captcha img {margin-top: 1px; display: block; width: 198px; height: 72px}
+form.submitPost tr.captcha td {vertical-align: bottom}
+form.submitPost tr.captcha input.textField {width: 195px; margin-top: 2px}
+* html form.submitPost ul.postTypes {height: 100%}
+
+/* SUBMIT POST PREVIEW */
+div.postPanelPreview div.confirm {position: fixed; overflow: hidden}
+div.postPanelPreview div.confirm span {display: block; float: left; margin-right: 5px; padding: 6px 0; color: #FFF}
+div.postPanelPreview div.confirm form {display: block; float: left; margin-right: 5px}
+div.postPanelPreview div.spacer {height: 330px; float: left}
+div.postPanelPreview h3.title {margin: 0 0 10px 0; color: #FEFF94; font-size: 14px}
+div.postPanelPreview h3.title a {font-size: 14px}
+div.postPanelPreview div.post {position: fixed; left: 20px; padding: 0 20px 5px 20px; top: 197px; background-color: #100F0F}
+div.postPanelPreview div.post div.embed {width: 480px; height: 295px}
+div.postPanelPreview b.base {position: fixed; width: 520px; left: 20px; top: 497px}
+div.postPanelPreview div.postContent {margin: 10px 0 20px 0}
+div.postPanelPreview div.postContent.video {margin-left: 510px}
+div.postPanelPreview div.postContent div.contentSpacer {height: 35px}
+* html div.postPanelPreview div.confirm {height: 100%}
+* html div.postPanelPreview div.post {float: left; padding-left: 0; margin-top: 20px}
+* html div.postPanelPreview div.postContent {margin: 0; float: left}
+* html div.postPanelPreview div.postContent div.contentSpacer {height: 0}
+*:first-child+html div.postPanelPreview div.postContent {padding-top: 10px}
+
+/* EDIT POST */
+form.editPost input.textField {width: 527px}
+form.editPost textarea.brief {width: 527px; height: 100px; background: #FFF url('/images/main/site/inputBG.gif') repeat-x scroll left top; border: 0; padding: 3px 0 0 3px}
+form.editPost textarea.wysiwyg {width: 527px; height: 245px; background: #FFF url('/images/main/site/inputBG.gif') repeat-x scroll left top; border: 0; padding: 3px 0 0 3px}
+
+/* POST REVISION HISTORY */
+form.revisionHistory {color: #FFF}
+form.revisionHistory th, form.revisionHistory td {text-align: left; padding-right: 10px}
+
+/* POST DIFF */
+table.diff div.diffContainer {background-color: #FFF; color: #000; width: 530px; padding: 5px; background: #FFF url('/images/main/site/inputBG.gif') repeat-x scroll left top}
+table.diff del {color: #DFDFDF}
+table.diff ins {color: #008F2E; background-color: #8FFFB3; text-decoration: none}
+
+/* USER ACCOUNT MANAGEMENT */
+form.accountManagement input.textField {width: 195px}
+form.accountManagement tr.terms {color: #FFF}
+form.accountManagement tr.terms input {position: relative; top: 2px}
+form.accountManagement tr.messages {color: #FFF}
+
+/* SUBSCRIPTIONS MANAGEMENT */
+table.subscriptions td {vertical-align: top; color: #FFF}
+table.subscriptions input.textField {width: 527px; height: 20px; padding-top: 5px}
+table.subscriptions ul {list-style: none}
+table.subscriptions div.page {margin-top: 15px}
+
+/* SIDE CONENT */
+div.side {float: right; width: 300px; overflow: hidden;}
+div.side div.ad {padding: 0 0 15px 0}
+
+/* REPAIR SERVICE */
+form.submitRepair select {border: 0; margin: 1px 0}
+form.submitRepair input.serial {width: 250px}
+form.submitRepair textarea.description {width: 527px; height: 100px; background: #FFF url('/images/main/site/inputBG.gif') repeat-x scroll left top; border: 0; padding: 3px 0 0 3px}
+form.submitRepair tr.captcha img {margin-top: 1px; display: block; width: 198px; height: 72px}
+form.submitRepair tr.captcha td {vertical-align: bottom}
+form.submitRepair tr.captcha input.textField {width: 195px; margin-top: 2px}
+form.submitRepair span#estimatedCost {color: #FEFF94; margin-left: 10px}
+form.submitRepair span#estimatedCost ul#systemProblemCosts {list-style: none; display: inline-block}
+div.repairOrderComplete {color: #FFF}
+div.repairOrderComplete p {margin: 0 0 10px 0}
+div.repairOrderComplete div.repairAddress {margin: 20px; color: #FEFF94; font-size: 14px}

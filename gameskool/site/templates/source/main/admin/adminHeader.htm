@@ -1,0 +1,182 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+	<title>{$_TITLE}</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+{foreach from=$_META item=_meta}
+{if $_meta}
+	{$_meta}
+{/if}
+{/foreach}
+	<link type="image/x-icon" href="/images/{$_SYSTEM->get('SOURCEDIR')}/site/favicon.ico" />
+	<link rel="stylesheet" type="text/css" href="/js/calendar/calendar-win2k-cold-1.css" />
+	<link rel="stylesheet" type="text/css" href="/js/jquery/plugins/cluetip/jquery.cluetip.css" />
+	<link rel="stylesheet" type="text/css" href="/js/jquery/plugins/autocomplete/auto.complete.css" />
+	<link rel="stylesheet" type="text/css" href="/css/{$_SYSTEM->get('SOURCEDIR')}/admin/admin.css" />
+{foreach from=$_STYLES item=_style}
+{if $_style}
+	<link rel="stylesheet" type="text/css" href="{$_style}" />
+{/if}
+{/foreach}
+	<script type="text/javascript" language="JavaScript" src="/js/calendar/calendar.js"></script>
+	<script type="text/javascript" language="JavaScript" src="/js/calendar/lang/calendar-en.js"></script>
+	<script type="text/javascript" language="JavaScript" src="/js/calendar/calendar-setup.js"></script>
+	<script type="text/javascript" language="JavaScript" src="/js/jquery/jquery.min.js"></script>
+	<script type="text/javascript" language="JavaScript" src="/js/jquery/plugins/jquery.dimensions.js"></script>
+	<script type="text/javascript" language="JavaScript" src="/js/jquery/plugins/cluetip/jquery.cluetip.js"></script>
+	<script type="text/javascript" language="JavaScript" src="/js/jquery/plugins/autocomplete/auto.complete.js"></script>
+	<script type="text/javascript" language="JavaScript" src="/js/{$_SYSTEM->get('SOURCEDIR')}/admin/admin.js"></script>
+{foreach from=$_SCRIPTS item=_script}
+{if $_script}
+	<script type="text/javascript" language="JavaScript" src="{$_script}"></script>
+{/if}
+{/foreach}
+{foreach from=$_SITETAGS.header item=_sitetag}
+{if $_sitetag.siteTag}
+{$_sitetag.siteTag}
+{/if}
+{/foreach}
+</head>
+
+<body id="adminBody">
+
+<div id="mainContainer">
+	<div class="adminMenu">
+		<ul>
+{if $admin.access.POST}
+			<li>
+				<a href="/admin/postsManagement">Posts<!--[if IE 7]><!--></a><!--<![endif]-->
+				<!--[if lte IE 6]><table><tr><td><![endif]-->
+				<ul>
+					<li><a href="/admin/postsManagement/action/disable">Disable Posts</a></li>
+				</ul>
+				<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+			</li>
+			<li class="separator">|</li>
+			<li>
+				<a href="/admin/gameTitlesManagement">Game Titles</a>
+			</li>
+			<li class="separator">|</li>
+			<li>
+				<a href="/admin/feedsManagement">Feeds<!--[if IE 7]><!--></a><!--<![endif]-->
+				<!--[if lte IE 6]><table><tr><td><![endif]-->
+				<ul>
+					<li><a href="/admin/feedsManagement/action/importYoutube">Import from Youtube</a></li>
+				</ul>
+				<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+			</li>
+			<li class="separator">|</li>
+{/if}
+{if $admin.access.ADS}
+			<li>
+				<a href="/admin/adsManagement">Ads</a>
+			</li>
+			<li class="separator">|</li>
+{/if}
+{if $admin.access.REPAIRS && $admin.access.ADS}
+			<li>
+				<a href="/admin/repairOrdersManagement">Repairs<!--[if IE 7]><!--></a><!--<![endif]-->
+				<!--[if lte IE 6]><table><tr><td><![endif]-->
+				<ul>
+					<li><a href="/admin/systemsManagement">Repair Systems</a></li>
+					<li><a href="/admin/systemProblemsManagement">System Problems</a></li>
+				</ul>
+				<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+			</li>
+			<li class="separator">|</li>
+{elseif $admin.access.REPAIRS}
+			<li>
+				<a href="/admin/repairOrdersManagement">Repairs</a>
+			</li>
+			<li class="separator">|</li>
+{elseif $admin.access.ADS}
+			<li>
+				<a href="/admin/systemsManagement">Repair Systems<!--[if IE 7]><!--></a><!--<![endif]-->
+				<!--[if lte IE 6]><table><tr><td><![endif]-->
+				<ul>
+					<li><a href="/admin/systemProblemsManagement">System Problems</a></li>
+				</ul>
+				<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+			</li>
+			<li class="separator">|</li>
+{/if}
+{if $admin.access.CONTENT}
+			<li>
+				<a href="/admin/contentManagement">Content<!--[if IE 7]><!--></a><!--<![endif]-->
+				<!--[if lte IE 6]><table><tr><td><![endif]-->
+				<ul>
+					<li><a href="/admin/contentManagement">Content</a></li>
+					<li><a href="/admin/contentImageManagement">Content Images</a></li>
+				</ul>
+				<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+			</li>
+			<li class="separator">|</li>
+{/if}
+{if $admin.access.USER}
+			<li>
+				<a href="/admin/usersManagement">Users</a>
+			</li>
+			<li class="separator">|</li>
+{/if}
+{if $admin.access.EMAIL}
+			<li>
+				<a href="/admin/emailsManagement">Emails<!--[if IE 7]><!--></a><!--<![endif]-->
+				<!--[if lte IE 6]><table><tr><td><![endif]-->
+				<ul>
+					<li><a href="/admin/emailsManagement">Emails</a></li>
+					<li><a href="/admin/emailSectionsManagement">Email Sections</a></li>
+				</ul>
+				<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+			</li>
+			<li class="separator">|</li>
+{/if}
+{if $admin.access.STATS}
+			<li>
+				<a href="/admin/siteTagsManagement">Site Tags</a>
+			</li>
+			<li class="separator">|</li>
+{/if}
+{if $admin.access.STATS}
+			<li>
+				<a href="/admin/reports/action/dashboard">Reports<!--[if IE 7]><!--></a><!--<![endif]-->
+				<!--[if lte IE 6]><table><tr><td><![endif]-->
+				<ul>
+					<li><a href="/admin/reports/action/dashboard">Dashboard</a></li>
+					<li><a href="/admin/reports/action/trafficSourceReport">Traffic Report</a></li>
+					<li><a href="/admin/reports/action/postStatistics">Post Statistics</a></li>
+				</ul>
+				<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+			</li>
+			<li class="separator">|</li>
+{/if}
+{if $admin.access.SUPERADMIN}
+			<li>
+				<a href="/admin/adminUsers">Admin Users<!--[if IE 7]><!--></a><!--<![endif]-->
+				<!--[if lte IE 6]><table><tr><td><![endif]-->
+				<ul>
+					<li><a href="/admin/adminUsers">Admin Users</a></li>
+					<li><a href="/admin/adminGroups">Admin Groups</a></li>
+				</ul>
+				<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+			</li>
+			<li class="separator">|</li>
+{/if}
+{if $admin.access.DEVELOPER}
+			<li>
+				<a href="/admin/errorsManagement">Errors</a>
+			</li>
+			<li class="separator">|</li>
+{/if}
+{if $admin}
+			<li>
+				<a href="/admin/logout">Logout</a>
+			</li>
+{else}
+			<li>&nbsp;</li>
+{/if}
+		</ul>
+	</div>
+	{include file="admin/messageSection.htm"}
+	<div id="workingSection">

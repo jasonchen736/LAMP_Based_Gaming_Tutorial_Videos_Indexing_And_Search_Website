@@ -1,0 +1,2 @@
+ALTER TABLE `users` ADD COLUMN `externalProvider` VARCHAR(45) DEFAULT NULL AFTER `userID`, ADD COLUMN `externalID` VARCHAR(255) DEFAULT NULL AFTER `externalProvider`, MODIFY COLUMN `email` VARCHAR(100) DEFAULT NULL, ADD UNIQUE KEY `externalID` (`externalID`), ADD KEY `externalProvider` (`externalProvider`);
+ALTER TABLE `usersHistory` ADD COLUMN `externalProvider` VARCHAR(45) DEFAULT NULL AFTER `userID`, ADD COLUMN `externalID` VARCHAR(255) DEFAULT NULL AFTER `externalProvider`, MODIFY COLUMN `email` VARCHAR(100) DEFAULT NULL;

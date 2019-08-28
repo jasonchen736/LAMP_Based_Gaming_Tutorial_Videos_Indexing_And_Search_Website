@@ -1,0 +1,25 @@
+{include file="admin/adminHeader.htm"}
+
+<form action="{$smarty.server.PHP_SELF}" method="post" enctype="multipart/form-data">
+	<p>
+		<a href="#" class="greenPlus" id="additionalImage">Additional Image</a>
+	</p>
+	<table>
+		<tbody id="imageFields">
+			<tr>
+				<td>Upload As:</td>
+				<td><input type="text" name="uploadName[1]" value="" /></td>
+			</tr>
+			<tr>
+				<td>File:</td>
+				<td><input type="file" name="uploadImage1" value="" /></td>
+			</tr>
+		</tbody>
+	</table>
+	<p>
+		<input type="hidden" name="action" value="uploadContentImages" />
+		<input class="button" type="submit" name="submit" value="Upload Images" />
+	</p>
+</form>
+
+{include file="admin/adminFooter.htm"}

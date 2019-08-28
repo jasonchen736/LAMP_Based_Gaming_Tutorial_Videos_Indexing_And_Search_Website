@@ -1,0 +1,158 @@
+{include file="admin/adminHeader.htm"}
+
+<p class="adminOption"><a href="{$smarty.server.PHP_SELF}/action/addPost" class="greenPlus">New Post</a></p>
+
+{include file="admin/pagination.htm"}
+
+<form action="{$smarty.server.PHP_SELF}/_sortField/{$query.sortField}/_sortOrder/{$query.sortOrder}{if $query.querystring}/{$query.querystring}{/if}" method="post">
+	<input type="hidden" name="runSearch" value="true" />
+
+	<table class="recordsTable">
+
+		<tr class="recordsHeader">
+			<td colspan="4">&nbsp;</td>
+			<td align="right"><a href="{$smarty.server.PHP_SELF}/_sortField/postID/_sortOrder/{if $query.sortField == 'postID'}{$query.revSortOrder}{else}ASC{/if}{if $query.querystring}/{$query.querystring}{/if}">Post ID</a></td>
+			<td><a href="{$smarty.server.PHP_SELF}/_sortField/type/_sortOrder/{if $query.sortField == 'type'}{$query.revSortOrder}{else}ASC{/if}{if $query.querystring}/{$query.querystring}{/if}">Type</a></td>
+			<td><a href="{$smarty.server.PHP_SELF}/_sortField/gameTitle/_sortOrder/{if $query.sortField == 'gameTitle'}{$query.revSortOrder}{else}ASC{/if}{if $query.querystring}/{$query.querystring}{/if}">Game Title</a></td>
+			<td><a href="{$smarty.server.PHP_SELF}/_sortField/postTitle/_sortOrder/{if $query.sortField == 'postTitle'}{$query.revSortOrder}{else}ASC{/if}{if $query.querystring}/{$query.querystring}{/if}">Post Title</a></td>
+			<td><a href="{$smarty.server.PHP_SELF}/_sortField/source/_sortOrder/{if $query.sortField == 'source'}{$query.revSortOrder}{else}ASC{/if}{if $query.querystring}/{$query.querystring}{/if}">Source</a></td>
+			<td><a href="{$smarty.server.PHP_SELF}/_sortField/status/_sortOrder/{if $query.sortField == 'status'}{$query.revSortOrder}{else}ASC{/if}{if $query.querystring}/{$query.querystring}{/if}">Status</a></td>
+			<td align="right"><a href="{$smarty.server.PHP_SELF}/_sortField/posted/_sortOrder/{if $query.sortField == 'posted'}{$query.revSortOrder}{else}ASC{/if}{if $query.querystring}/{$query.querystring}{/if}">Submitted On</a></td>
+			<td><a href="{$smarty.server.PHP_SELF}/_sortField/userName/_sortOrder/{if $query.sortField == 'userName'}{$query.revSortOrder}{else}ASC{/if}{if $query.querystring}/{$query.querystring}{/if}">Submitted By</a></td>
+			<td><a href="{$smarty.server.PHP_SELF}/_sortField/poster/_sortOrder/{if $query.sortField == 'poster'}{$query.revSortOrder}{else}ASC{/if}{if $query.querystring}/{$query.querystring}{/if}">User Type</a></td>
+		</tr>
+
+		<tr class="recordSearchHeader">
+			<td colspan="4">
+				<input class="button" type="reset" value="Reset" />
+				<br class="clear" />
+				<input class="button" type="submit" value="Search" />
+			</td>
+			<td class="idField"><input type="text" name="postID" value="{$search.postID.value}" /></td>
+			<td>
+				<select name="type">
+					<option value="">All</option>
+					{html_options options=$postTypes selected=$search.type.value}
+				</select>
+			</td>
+			<td>
+				<input type="text" name="gameTitle" id="gameTitle" value="{$search.gameTitle.value}" />
+				<input type="hidden" name="gameTitle_operator" value="contains" />
+			</td>
+			<td>
+				<input type="text" name="postTitle" value="{$search.postTitle.value}" />
+				<input type="hidden" name="postTitle_operator" value="contains" />
+			</td>
+			<td>
+				<select name="source">
+					<option value="">All</option>
+					{html_options options=$sources selected=$search.source.value}
+				</select>
+			</td>
+			<td>
+				{html_options name=status options=$search.status.options selected=$search.status.value}
+			</td>
+			<td>
+				<table class="searchSection dateSelect">
+					<tr>
+						<td>From:&nbsp;</td>
+						<td>
+							<input type="text" name="postedFrom" id="postedFrom" value="{$search.postedFrom.value|date_format:"%m/%d/%Y"}" />
+							<img src="/images/{$_SYSTEM->get('SOURCEDIR')}/admin/calendar.png" id="postedFromButton" />
+						</td>
+					</tr>
+					<tr>
+						<td>To:</td>
+						<td>
+							<input type="text" name="postedTo" id="postedTo" value="{$search.postedTo.value|date_format:"%m/%d/%Y"}" />
+							<img src="/images/{$_SYSTEM->get('SOURCEDIR')}/admin/calendar.png" id="postedToButton" />
+						</td>
+					</tr>
+				</table>
+{literal}
+				<script type="text/javascript">
+					Calendar.setup(
+						{
+							inputField : "postedFrom",
+							ifFormat : "%m/%d/%Y",
+							button : "postedFromButton"
+						}
+					);
+					Calendar.setup(
+						{
+							inputField : "postedTo",
+							ifFormat : "%m/%d/%Y",
+							button : "postedToButton"
+						}
+					);
+				</script>
+{/literal}
+			</td>
+			<td>
+				<input type="text" name="userName" value="{$search.userName.value}" />
+				<input type="hidden" name="userName_operator" value="contains" />
+			</td>
+			<td>
+				{html_options name=poster options=$userTypes selected=$search.poster.value}
+			</td>
+		</tr>
+
+{section name=record loop=$records}
+		<tr class="{cycle values="recordsRowAlpha,recordsRowBeta"}">
+			<td align="center">
+				<a href="/post/{$records[record].gameTitleURL}/{$records[record].postTitleURL}" class="viewContent iconOnly" title="View Post">&nbsp;</a>
+			</td>
+			<td align="center">
+				<a href="/comments/{$records[record].gameTitleURL}/{$records[record].postTitleURL}" class="moreInfo iconOnly" title="View Post Comments">&nbsp;</a>
+			</td>
+			<td align="center">
+				<a href="{$smarty.server.PHP_SELF}/postID/{$records[record].postID}/action/editPost" class="edit iconOnly" title="Edit Post">&nbsp;</a>
+			</td>
+			<td align="center">
+				<input type="checkbox" name="selectPost[{$records[record].postID}]" value="{$records[record].postID}" />
+			</td>
+			<td align="right">{$records[record].postID}</td>
+			<td>{$records[record].type}</td>
+			<td>{$records[record].gameTitle}</td>
+			<td>{$records[record].postTitle}</td>
+			<td>{$records[record].source}</td>
+			<td>{$records[record].status}</td>
+			<td align="right">{$records[record].posted|date_format:"%m/%d/%Y"}</td>
+			<td>{if $records[record].poster != 'ANONYMOUS'}<a href="/admin/{if $records[record].poster == 'USER'}usersManagement/userID{else}adminUsers/adminUserID{/if}/{$records[record].posterID}/action/editUser">{$records[record].userName}</a>{else}{$records[record].userName}{/if}</td>
+			<td>{$records[record].poster|strtolower}</td>
+		</tr>
+{/section}
+
+		<tr class="recordsFooter">
+			<td colspan="4">&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+		</tr>
+
+		<tr><td colspan="13">&nbsp;</td></tr>
+
+		<tr class="additionalActions">
+			<td colspan="4"><strong>Additional Actions:</strong></td>
+			<td><input class="button" type="submit" name="takeAction" value="Activate Selected" /></td>
+			<td><input class="button" type="submit" name="takeAction" value="Disable Selected" />
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+		</tr>
+
+	</table>
+
+</form>
+
+{include file="admin/adminFooter.htm"}

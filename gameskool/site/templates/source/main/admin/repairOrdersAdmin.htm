@@ -1,0 +1,136 @@
+{include file="admin/adminHeader.htm"}
+
+<p class="adminOption"><a href="{$smarty.server.PHP_SELF}/action/addRepairOrder" class="greenPlus">New Repair Order</a></p>
+
+{include file="admin/pagination.htm"}
+
+<form action="{$smarty.server.PHP_SELF}/_sortField/{$query.sortField}/_sortOrder/{$query.sortOrder}{if $query.querystring}/{$query.querystring}{/if}" method="post">
+	<input type="hidden" name="runSearch" value="true" />
+
+	<table class="recordsTable">
+
+		<tr class="recordsHeader">
+			<td>&nbsp;</td>
+			<td align="right"><a href="{$smarty.server.PHP_SELF}/_sortField/repairOrderID/_sortOrder/{if $query.sortField == 'repairOrderID'}{$query.revSortOrder}{else}ASC{/if}{if $query.querystring}/{$query.querystring}{/if}">Repair ID</a></td>
+			<td><a href="{$smarty.server.PHP_SELF}/_sortField/console/_sortOrder/{if $query.sortField == 'console'}{$query.revSortOrder}{else}ASC{/if}{if $query.querystring}/{$query.querystring}{/if}">Console</a></td>
+			<td><a href="{$smarty.server.PHP_SELF}/_sortField/serial/_sortOrder/{if $query.sortField == 'serial'}{$query.revSortOrder}{else}ASC{/if}{if $query.querystring}/{$query.querystring}{/if}">Serial</a></td>
+			 <td><a href="{$smarty.server.PHP_SELF}/_sortField/status/_sortOrder/{if $query.sortField == 'status'}{$query.revSortOrder}{else}ASC{/if}{if $query.querystring}/{$query.querystring}{/if}">Status</a></td>
+			<td><a href="{$smarty.server.PHP_SELF}/_sortField/first/_sortOrder/{if $query.sortField == 'first'}{$query.revSortOrder}{else}ASC{/if}{if $query.querystring}/{$query.querystring}{/if}">First Name</a></td>
+			<td><a href="{$smarty.server.PHP_SELF}/_sortField/last/_sortOrder/{if $query.sortField == 'last'}{$query.revSortOrder}{else}ASC{/if}{if $query.querystring}/{$query.querystring}{/if}">Last Name</a></td>
+			<td><a href="{$smarty.server.PHP_SELF}/_sortField/email/_sortOrder/{if $query.sortField == 'email'}{$query.revSortOrder}{else}ASC{/if}{if $query.querystring}/{$query.querystring}{/if}">Email</a></td>
+			<td><a href="{$smarty.server.PHP_SELF}/_sortField/user/_sortOrder/{if $query.sortField == 'user'}{$query.revSortOrder}{else}ASC{/if}{if $query.querystring}/{$query.querystring}{/if}">User Type</a></td>
+			<td align="right"><a href="{$smarty.server.PHP_SELF}/_sortField/userName/_sortOrder/{if $query.sortField == 'userName'}{$query.revSortOrder}{else}ASC{/if}{if $query.querystring}/{$query.querystring}{/if}">Username</a></td>
+			<td align="right"><a href="{$smarty.server.PHP_SELF}/_sortField/orderDate/_sortOrder/{if $query.sortField == 'orderDate'}{$query.revSortOrder}{else}ASC{/if}{if $query.querystring}/{$query.querystring}{/if}">Order Date</a></td>
+		</tr>
+
+		<tr class="recordSearchHeader">
+			<td>
+				<input class="button" type="reset" value="Reset" />
+				<br class="clear" />
+				<input class="button" type="submit" value="Search" />
+			</td>
+			<td class="idField"><input type="text" name="repairOrderID" value="{$search.repairOrderID.value}" /></td>
+			<td>
+				<select name="console">
+					<option value="">All</option>
+					{html_options options=$consoles selected=$search.console.value}
+				</select>
+			</td>
+			<td>
+				<input type="text" name="serial" id="serial" value="{$search.serial.value}" />
+				<input type="hidden" name="serial_operator" value="contains" />
+			</td>
+			<td>
+				{html_options name=status options=$search.status.options selected=$search.status.value}
+			</td>
+			<td>
+				<input type="text" name="first" id="first" value="{$search.first.value}" />
+				<input type="hidden" name="first_operator" value="contains" />
+			</td>
+			<td>
+				<input type="text" name="last" id="last" value="{$search.last.value}" />
+				<input type="hidden" name="last_operator" value="contains" />
+			</td>
+			<td>
+				<input type="text" name="email" id="email" value="{$search.email.value}" />
+				<input type="hidden" name="email_operator" value="contains" />
+			</td>
+			<td>
+				{html_options name=user options=$userTypes selected=$search.user.value}
+			</td>
+			<td><input type="text" name="userName" value="{$search.userName.value}" /></td>
+			<td>
+				<table class="searchSection dateSelect">
+					<tr>
+						<td>From:&nbsp;</td>
+						<td>
+							<input type="text" name="orderDateFrom" id="orderDateFrom" value="{$search.orderDateFrom.value|date_format:"%m/%d/%Y"}" />
+							<img src="/images/{$_SYSTEM->get('SOURCEDIR')}/admin/calendar.png" id="orderDateFromButton" />
+						</td>
+					</tr>
+					<tr>
+						<td>To:</td>
+						<td>
+							<input type="text" name="orderDateTo" id="orderDateTo" value="{$search.orderDateTo.value|date_format:"%m/%d/%Y"}" />
+							<img src="/images/{$_SYSTEM->get('SOURCEDIR')}/admin/calendar.png" id="orderDateToButton" />
+						</td>
+					</tr>
+				</table>
+{literal}
+				<script type="text/javascript">
+					Calendar.setup(
+						{
+							inputField : "orderDateFrom",
+							ifFormat : "%m/%d/%Y",
+							button : "orderDateFromButton"
+						}
+					);
+					Calendar.setup(
+						{
+							inputField : "orderDateTo",
+							ifFormat : "%m/%d/%Y",
+							button : "orderDateToButton"
+						}
+					);
+				</script>
+{/literal}
+			</td>
+		</tr>
+
+{section name=record loop=$records}
+		<tr class="{cycle values="recordsRowAlpha,recordsRowBeta"}">
+			<td align="center">
+				<a href="{$smarty.server.PHP_SELF}/repairOrderID/{$records[record].repairOrderID}/action/editRepairOrder" class="edit iconOnly" title="Edit Repair Order">&nbsp;</a>
+			</td>
+			<td align="right">{$records[record].repairOrderID}</td>
+			<td>{assign var="systemID" value=$records[record].console}{$consoles.$systemID}</td>
+			<td>{$records[record].serial}</td>
+			<td>{$records[record].status}</td>
+			<td>{$records[record].first}</td>
+			<td>{$records[record].last}</td>
+			<td>{$records[record].email}</td>
+			<td>{$records[record].user|strtolower}</td>
+			<td><a href="/admin/{if $records[record].user == 'USER'}usersManagement/userID{else}adminUsers/adminUserID{/if}/{$records[record].userID}/action/editUser">{$records[record].userName}</a></td>
+			<td align="right">{$records[record].orderDate|date_format:"%m/%d/%Y"}</td>
+		</tr>
+{/section}
+
+		<tr class="recordsFooter">
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+		</tr>
+
+	</table>
+
+</form>
+
+{include file="admin/adminFooter.htm"}

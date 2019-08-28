@@ -1,0 +1,119 @@
+{include file="admin/adminHeader.htm"}
+
+<form action="{$smarty.server.PHP_SELF}" method="post" style="margin-bottom: 10px">
+	<table>
+		<tr>
+			<td>
+				<table class="dateSelect">
+					<tr>
+						<td>From:</td>
+						<td>
+							<input type="text" name="startDate" id="startDate" value="{$startDate|date_format:"%m/%d/%Y"}" />
+							<img src="/images/{$_SYSTEM->get('SOURCEDIR')}/admin/calendar.png" id="startDateButton" />
+						</td>
+					</tr>
+					<tr>
+						<td>To:</td>
+						<td>
+							<input type="text" name="endDate" id="endDate" value="{$endDate|date_format:"%m/%d/%Y"}" />
+							<img src="/images/{$_SYSTEM->get('SOURCEDIR')}/admin/calendar.png" id="endDateButton" />
+						</td>
+					</tr>
+				</table>
+{literal}
+				<script type="text/javascript">
+					Calendar.setup(
+						{
+							inputField : "startDate",
+							ifFormat : "%m/%d/%Y",
+							button : "startDateButton"
+						}
+					);
+					Calendar.setup(
+						{
+							inputField : "endDate",
+							ifFormat : "%m/%d/%Y",
+							button : "endDateButton"
+						}
+					);
+				</script>
+{/literal}
+			</td>
+			<td>
+				<input class="button" type="submit" value="Change Date Range" />
+			</td>
+		</tr>
+	</table>
+</form>
+
+<table class="recordsTable">
+	<tr class="reportTitle">
+		<td colspan="5">Top Traffic Sources</td>
+	</tr>
+	<tr class="recordsHeader">
+		<td align="right">ID</td>
+		<td>Sub ID</td>
+		<td>Extra</td>
+		<td align="right">Hits</td>
+		<td align="right">Unique Hits</td>
+	</tr>
+{foreach from=$trafficSources item=row}
+	<tr class="{cycle values="recordsRowAlpha,recordsRowBeta"}">
+		<td align="right">
+			{$row.ID}
+		</td>
+		<td>
+			{$row.subID}
+		</td>
+		<td>
+			{$row.extra}
+		</td>
+		<td align="right">
+			{$row.hits}
+		</td>
+		<td align="right">
+			{$row.uniques}
+		</td>
+	</tr>
+{/foreach}
+	<tr class="recordsFooter">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+	</tr>
+</table>
+
+<br />
+
+<table class="recordsTable">
+	<tr class="reportTitle">
+		<td colspan="5">Top Post Pages</td>
+	</tr>
+	<tr class="recordsHeader">
+		<td align="right">Post ID</td>
+		<td>Title</td>
+		<td align="right">Views</td>
+	</tr>
+{foreach from=$topPosts item=row}
+	<tr class="{cycle values="recordsRowAlpha,recordsRowBeta"}">
+		<td align="right">
+			{$row.postID}
+		</td>
+		<td>
+			{$row.postTitle}
+		</td>
+		<td align="right">
+			{$row.views}
+		</td>
+	</tr>
+{/foreach}
+	<tr class="recordsFooter">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+	</tr>
+</table>
+
+{include file="admin/adminFooter.htm"}

@@ -1,0 +1,54 @@
+{include file="admin/adminHeader.htm"}
+
+<form action="{$smarty.server.PHP_SELF}" method="post">
+	<table id="editTable">
+		<tr>
+			<td id="editMenuCell">
+				<ul id="editMenu">
+					<li class="head">&nbsp;</li>
+					<li class="editMenuOption{if !$propertyMenuItem || $propertyMenuItem == 'gameTitle_main'} selected{/if}" id="gameTitle_main">Game Title Details</li>
+					<li class="end">&nbsp;</li>
+				</ul>
+				<div id="editActionContainer">
+{if $mode == 'edit'}
+					<input type="hidden" name="action" value="updateGameTitle" />
+					<input type="hidden" name="gameTitleID" value="{$gameTitle.gameTitleID}" />
+					<input class="button" type="submit" name="submit" value="Update" />
+{else}
+					<input type="hidden" name="action" value="saveGameTitle" />
+					<input class="button" type="submit" name="submit" value="Add and Edit" />
+					<br class="clear" />
+					<input class="button" type="submit" name="submit" value="Add Another" />
+{/if}
+				</div>
+			</td>
+			<td id="editPropertyCell">
+				<div id="gameTitle_mainContainer" class="propertyContainer{if $propertyMenuItem && $propertyMenuItem != 'gameTitle_main'} hidden{/if}">
+					<table>
+{if $mode == 'edit'}
+						<tr>
+							<td width="10%"><span class="normalLabel">Game Title ID:</span></td>
+							<td>{$gameTitle.gameTitleID}</td>
+						</tr>
+						<tr>
+							<td width="10%"><span class="normalLabel">Date Added:</span></td>
+							<td>{$gameTitle.dateAdded|date_format:"%m/%d/%Y %r"}</td>
+						</tr>
+{/if}
+						<tr>
+							<td width="10%">
+								<span class="{if 'gameTitleID'|in_array:$errorFields}errorLabel{else}normalLabel{/if}">Game Title:</span>
+							</td>
+							<td>
+								<input type="text" name="gameTitle" id="gameTitle" value="{$gameTitle.gameTitle}" style="width: 75%" />
+							</td>
+						</tr>
+					</table>
+				</div>
+			</td>
+		</tr>
+	</table>
+	<input type="hidden" name="propertyMenuItem" id="propertyMenuItem" value="{$propertyMenuItem}" />
+</form>
+
+{include file="admin/adminFooter.htm"}

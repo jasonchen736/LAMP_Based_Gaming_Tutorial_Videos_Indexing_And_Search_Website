@@ -1,0 +1,16 @@
+<div class="post">
+    <div class="embed">
+        <embed src="{$embedSource}" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="480" height="295" align="middle" wmode="transparent"></embed>
+    </div>
+</div>
+<b class="base"><b class="b5"></b><b class="b4"></b><b class="b3"></b><b class="b2"><b></b></b><b class="b1"><b></b></b></b>
+<div class="spacer">&nbsp;</div>
+<div class="postContent video">
+    <div class="contentSpacer">&nbsp;</div>
+    <h3 class="title"><a href="/game/{$post.gameTitleURL}">{$post.gameTitle}</a> - {$post.postTitle}</h3>
+{if !empty($content)}
+    {$content}
+{else}
+    this here is a wiki with nothing on it
+{/if}
+</div>

@@ -1,0 +1,27 @@
+<?
+
+	// Database connection
+	ini_set('mysql.default_host', '[DB HOST]');
+	ini_set('mysql.default_user', '[DB USER]');
+	ini_set('mysql.default_password', '[DB PASSWORD]');
+
+	// Error handling
+	ini_set('display_errors', 0);
+	ini_set('log_errors', 1);
+	ini_set('log_errors_max_len', 1024);
+	ini_set('error_log', '[ERROR LOG FILE]');
+
+	// Globals settings
+	ini_set('include_path', '[PATH TO LIBRARY]');
+
+	// Requisite settings
+	ini_set('magic_quotes_gpc', 0);
+	ini_set('allow_call_time_pass_reference', 1);
+
+	// Server environment settings
+	$_SERVER['DOCUMENT_ROOT'] = '[PATH TO WWW FOLDER]';
+	$_SERVER['HTTP_HOST'] = '[HTTP HOST]';
+
+	require_once 'global.php';
+
+?>

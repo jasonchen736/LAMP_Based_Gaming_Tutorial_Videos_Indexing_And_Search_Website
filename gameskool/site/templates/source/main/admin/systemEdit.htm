@@ -1,0 +1,62 @@
+{include file="admin/adminHeader.htm"}
+
+<form action="{$smarty.server.PHP_SELF}" method="post">
+	<table id="editTable">
+		<tr>
+			<td id="editMenuCell">
+				<ul id="editMenu">
+					<li class="head">&nbsp;</li>
+					<li class="editMenuOption{if !$propertyMenuItem || $propertyMenuItem == 'system_main'} selected{/if}" id="system_main">System Details</li>
+					<li class="end">&nbsp;</li>
+				</ul>
+				<div id="editActionContainer">
+{if $mode == 'edit'}
+					<input type="hidden" name="action" value="updateSystem" />
+					<input type="hidden" name="systemID" value="{$system.systemID}" />
+					<input class="button" type="submit" name="submit" value="Update" />
+{else}
+					<input type="hidden" name="action" value="saveSystem" />
+					<input class="button" type="submit" name="submit" value="Add and Edit" />
+					<br class="clear" />
+					<input class="button" type="submit" name="submit" value="Add Another" />
+{/if}
+				</div>
+			</td>
+			<td id="editPropertyCell">
+				<div id="system_mainContainer" class="propertyContainer{if $propertyMenuItem && $propertyMenuItem != 'system_main'} hidden{/if}">
+					<table>
+{if $mode == 'edit'}
+						<tr>
+							<td><span class="normalLabel">System ID:</span></td>
+							<td>{$system.systemID}</td>
+						</tr>
+						<tr>
+							<td><span class="normalLabel">Date Added:</span></td>
+							<td>{$system.dateAdded|date_format:"%m/%d/%Y %r"}</td>
+						</tr>
+{/if}
+						<tr>
+							<td>
+								<span class="{if 'name'|in_array:$errorFields}errorLabel{else}normalLabel{/if}">Name:</span>
+							</td>
+							<td>
+								<input type="text" name="name" value="{$system.name}" style="width: 75%" />
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<span class="{if 'status'|in_array:$errorFields}errorLabel{else}normalLabel{/if}">Status:</span>
+							</td>
+							<td>
+								{html_options name=status options=$statusOptions selected=$system.status}
+							</td>
+						</tr>
+					</table>
+				</div>
+			</td>
+		</tr>
+	</table>
+	<input type="hidden" name="propertyMenuItem" id="propertyMenuItem" value="{$propertyMenuItem}" />
+</form>
+
+{include file="admin/adminFooter.htm"}
